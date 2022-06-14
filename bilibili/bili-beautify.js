@@ -92,13 +92,6 @@ if (!body.hasOwnProperty('data')) {
                 return true;
             });
         }
-    } else if (url.indexOf("x/v2/account/mine") !== -1 && method === getMethod) {
-        // 我的页面
-        console.log('我的页面')
-        if(body.data.hasOwnProperty('sections_v2')) {
-            body.data.sections_v2 = body.data.sections_v2.filter(item => ['创作中心', '推荐服务'].indexOf(item.title) === -1)
-        }
-
     } else if (url.indexOf("x/resource/top/activity") !== -1 && method === getMethod) {
         console.log('顶部top活动')
         if(body.data.hasOwnProperty('online')) {
