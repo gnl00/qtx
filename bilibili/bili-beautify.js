@@ -26,7 +26,7 @@ if (!body.hasOwnProperty('data')) {
             $notification.post(notifiTitle, 'tab', "top字段错误");
         } else {
             console.log('首页top修改');
-            body.data.top = body.data.top.filter(item => '消息' !== item.name);
+            body.data.top = body.data.top.filter(item => '消息' === item.name);
             fixPos(body.data.top);
             console.log(body.data.top)
         }
