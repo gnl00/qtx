@@ -57,7 +57,7 @@ if(body.hasOwnProperty('data') && body.data) {
 
   //video watermark
   if(url.indexOf('v3/note/videofeed') !== -1 && body.data) {
-    body.data = body.data.forEach(item => {
+    body.data.forEach(item => {
       if(item.hasOwnProperty('media_save_config')) {
           item.media_save_config.disable_watermark = true
       }
