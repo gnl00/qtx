@@ -27,17 +27,17 @@ if(body.hasOwnProperty('data') && body.data) {
   if(url.indexOf('v6/homefeed/categories')) {
     console.log('xhs-pure handle homefeed categories')
 
-    if(body.data.hasOwnProperty('categories')) {
-      body.data.categories = body.data.categories.map(item => {
-        if(item.oid.indexOf('_v3') === -1) {
-          item.oid = item.oid.concat('_v3');
-      }
-      return item;
-      })
-    }
+    // if(body.data.hasOwnProperty('categories')) {
+    //   body.data.categories = body.data.categories.map(item => {
+    //     if(item.oid.indexOf('_v3') === -1) {
+    //       item.oid = item.oid.concat('_v3');
+    //   }
+    //   return item;
+    //   })
+    // }
 
     if(body.data.hasOwnProperty('rec_categories')) {
-      body.data.rec_categories = {}
+      delete body.data.rec_categories
     }
   }
 
