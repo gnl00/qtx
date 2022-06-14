@@ -28,7 +28,6 @@ if (!body.hasOwnProperty('data')) {
             console.log('首页top修改');
             body.data.top = body.data.top.filter(item => '消息' === item.name);
             fixPos(body.data.top);
-            console.log(body.data.top)
         }
         // 顶部tab栏
         if (!body.data.hasOwnProperty('tab')) {
@@ -38,7 +37,6 @@ if (!body.hasOwnProperty('data')) {
             console.log('首页tab修改');
             body.data.tab = body.data.tab.filter(item => ['推荐', '热门', '追番'].indexOf(item.name) !== -1 );
             fixPos(body.data.tab);
-            console.log(body.data.tab)
         }
         // 底部bottom栏
         if (!body.data.hasOwnProperty('bottom')) {
@@ -48,7 +46,6 @@ if (!body.hasOwnProperty('data')) {
             console.log('首页bottom修改');
             body.data.bottom = body.data.bottom.filter(item => ['首页', '动态', '我的'].indexOf(item.name) !== -1 );
             fixPos(body.data.bottom);
-            console.log(body.data.bottom)
         }
     } else if (url.indexOf("x/v2/feed/index") !== -1 && method === getMethod) {
         console.log('推荐页');
