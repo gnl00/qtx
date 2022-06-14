@@ -26,7 +26,7 @@ if (!body.hasOwnProperty('data')) {
             $notification.post(notifiTitle, 'tab', "top字段错误");
         } else {
             console.log('首页top修改');
-            body.data.top = [];
+            body.data.top = body.data.top.filter(item => '消息' !== item.name);
             fixPos(body.data.top);
             console.log(body.data.top)
         }
@@ -35,7 +35,7 @@ if (!body.hasOwnProperty('data')) {
             console.log("body:" + $response.body);
             $notification.post(notifiTitle, 'tab', "tab字段错误");
         } else {
-            console.log('首页top修改');
+            console.log('首页tab修改');
             body.data.tab = body.data.tab.filter(item => ['推荐', '热门', '追番'].indexOf(item.name) !== -1 );
             fixPos(body.data.tab);
             console.log(body.data.tab)
