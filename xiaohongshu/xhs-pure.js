@@ -12,7 +12,7 @@ if(body.hasOwnProperty('data') && body.data) {
   }
 
   // app ads
-  if(url.indexOf('v1/ads/resource') && body.data) {
+  if(url.indexOf('v1/ads/resource') && body.data.length !== 0) {
     body.data.length = 0
   }
 
@@ -51,12 +51,18 @@ if(body.hasOwnProperty('data') && body.data) {
   // }
 
   // picture watermark
-  if(url.indexOf('v2/note/feed') !== -1 && body.data[0].note_list[0].media_save_config.hasOwnProperty('disable_watermark')) {
-    body.data[0].note_list[0].media_save_config.disable_watermark = true;
+  if(url.indexOf('v2/note/feed') !== -1) {
+    for(let i = 0; i < body.data.length; i++) {
+      body.data[i].note_list.forEach(item => {
+        if(item.hasOwnProperty('media_save_config')) {
+          item.media_save_config.disable_watermark = true
+        }
+      })
+    }
   }
 
   //video watermark
-  if(url.indexOf('v3/note/videofeed') !== -1 && body.data) {
+  if(url.indexOf('v3/note/videofeed') !== -1) {
     body.data.forEach(item => {
       if(item.hasOwnProperty('media_save_config')) {
           item.media_save_config.disable_watermark = true
