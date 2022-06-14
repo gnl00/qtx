@@ -25,7 +25,7 @@ if(body.hasOwnProperty('data')) {
         }
 
         if(body.data.hasOwnProperty('hotReplyRows')) {
-            body.data.hotReplyRows = body.data.hotReplyRows.filter(item => !item.hasOwnProperty('entityTemplate'))
+            body.data.hotReplyRows = body.data.hotReplyRows.filter(item => !item.entityTemplate)
         }
     }
 
@@ -33,7 +33,7 @@ if(body.hasOwnProperty('data')) {
     if(url.indexOf('v6/feed/replyList') !== -1){
         console.log('coolapk-pure feed reply')
 
-        body.data = body.data.filter(item => !item.hasOwnProperty('entityTemplate'))
+        body.data = body.data.filter(item => !item.entityTemplate)
     }
 }
 
