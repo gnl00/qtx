@@ -17,3 +17,8 @@ if( body.hasOwnProperty('data')
   }
   
 }
+
+body = JSON.stringify(body);
+$done({
+    body
+});
