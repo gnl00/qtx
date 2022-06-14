@@ -8,7 +8,7 @@ if(body.hasOwnProperty('data') && body.data) {
   // app splash
   if(url.indexOf('v2/system_service/splash_config') && body.data.hasOwnProperty('ads_groups')){
     console.log('xhs-pure handle app splash')
-    body.data.ads_groups.length = 0
+    body.data = {}
   }
 
   // app ads
