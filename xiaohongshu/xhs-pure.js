@@ -12,9 +12,9 @@ if(body.hasOwnProperty('data') && body.data) {
   }
 
   // app ads
-  if(url.indexOf('v1/ads/resource') && body.data.length !== 0) {
-    body.data.length = 0
-  }
+  // if(url.indexOf('v1/ads/resource') && body.data.length !== 0) {
+  //   body.data.length = 0
+  // }
 
   // homefeed tabbar
   if(url.indexOf('v1/system_service/config') && body.data.hasOwnProperty('tabbar')) {
