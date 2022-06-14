@@ -11,11 +11,16 @@ if(body.hasOwnProperty('data') && body.data) {
     body.data.ads_groups.length = 0
   }
 
+  // app ads
+  if(url.indexOf('v1/ads/resource') && body.data) {
+    body.data.length = 0
+  }
+
   // homefeed tabbar
   if(url.indexOf('v1/system_service/config') && body.data.hasOwnProperty('tabbar')) {
     console.log('xhs-pure handle homefeed tabbar')
 
-    body.data.tabbar.tabs = body.data.tabbar.tabs.filter(item => item.title !== '购买');
+    body.data.tabbar.tabs = body.data.tabbar.tabs.filter(item => ['购买', '购物'].indexOf(item.title) === -1);
   }
 
   // homefeed categories
@@ -32,13 +37,32 @@ if(body.hasOwnProperty('data') && body.data) {
     }
 
     if(body.data.hasOwnProperty('rec_categories')) {
-      delete body.data.rec_categories;
+      body.data.rec_categories = {}
     }
   }
-  
-  // watermark
+
+  // force enable download
+  if(url.indexOf('v10/note/video/save') && body.data) {
+    body.data = {
+      ...body.data,
+      msg: '正在下载',
+      disable: false
+    }
+  }
+
+  // picture watermark
   if(url.indexOf('v2/note/feed') !== -1 && body.data[0].note_list[0].media_save_config.hasOwnProperty('disable_watermark')) {
     body.data[0].note_list[0].media_save_config.disable_watermark = true;
+  }
+
+  //video watermark
+  if(url.indexOf('v3/note/videofeed') !== -1 && body.data) {
+    body.data = body.data.filter(item => {
+      if(item.media_save_config.hasOwnProperty('disable_watermark')) {
+        item.media_save_config.disable_watermark = true
+      }
+      return item
+    })
   }
 }
 
