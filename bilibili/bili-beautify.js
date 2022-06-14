@@ -20,30 +20,35 @@ if (!body.hasOwnProperty('data')) {
             console.log('成功');
         }
     } else if (url.indexOf("resource/show/tab/v2") !== -1 && method === getMethod) {
-        console.log('首页top/tab/bottom修改');
         // 右上角top栏
         if (!body.data.hasOwnProperty('top')) {
             console.log("body:" + $response.body);
             $notification.post(notifiTitle, 'tab', "top字段错误");
         } else {
+            console.log('首页top修改');
             body.data.top = [];
             fixPos(body.data.top);
+            console.log(body.data.top)
         }
         // 顶部tab栏
         if (!body.data.hasOwnProperty('tab')) {
             console.log("body:" + $response.body);
             $notification.post(notifiTitle, 'tab', "tab字段错误");
         } else {
-            body.data.tab = body.data.bottom.filter(item => ['推荐', '热门', '动画', '影视'].indexOf(item.name) !== -1 );
+            console.log('首页top修改');
+            body.data.tab = body.data.tab.filter(item => ['推荐', '热门', '追番'].indexOf(item.name) !== -1 );
             fixPos(body.data.tab);
+            console.log(body.data.tab)
         }
         // 底部bottom栏
         if (!body.data.hasOwnProperty('bottom')) {
             console.log("body:" + $response.body);
             $notification.post(notifiTitle, 'tab', "bottom字段错误");
         } else {
+            console.log('首页bottom修改');
             body.data.bottom = body.data.bottom.filter(item => ['首页', '动态', '我的'].indexOf(item.name) !== -1 );
             fixPos(body.data.bottom);
+            console.log(body.data.bottom)
         }
     } else if (url.indexOf("x/v2/feed/index") !== -1 && method === getMethod) {
         console.log('推荐页');
