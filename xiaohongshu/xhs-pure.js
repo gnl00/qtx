@@ -42,13 +42,13 @@ if(body.hasOwnProperty('data') && body.data) {
   }
 
   // force enable download
-  if(url.indexOf('v10/note/video/save') && body.data) {
-    body.data = {
-      ...body.data,
-      msg: '正在下载',
-      disable: false
-    }
-  }
+  // if(url.indexOf('v10/note/video/save') && body.data) {
+  //   body.data = {
+  //     ...body.data,
+  //     msg: '正在下载',
+  //     disable: false
+  //   }
+  // }
 
   // picture watermark
   if(url.indexOf('v2/note/feed') !== -1) {
