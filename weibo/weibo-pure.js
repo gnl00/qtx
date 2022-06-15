@@ -105,31 +105,26 @@ function simplifyFinder(body) {
   body.channelInfo.channels.forEach(item => {
     if(item.payload.items.length !== 0) {
       item.payload.items = item.payload.items.filter(pitem=> {
-        if(pitem.category && pitem.category === 'feed') {
-          return false
-        } else if(pitem.data && pitem.data.title && pitem.data.title === '热门微博') {
-          pitem.data.title = '✅发现页面精简完成'
-        } else if(pitem.category === 'card' && pitem.data.itemid === 'hot_search') {
-          // 去除发现页面顶部热搜中的商业推广和娱乐内容
-          console.log('weibo-pure handle finder')
-          pitem.data.group = pitem.data.group.filter(gitem => {
-            if(gitem.icon) return gitem.icon.indexOf('jian') === -1 || gitem.icon.indexOf('entertainment') === -1
-          })
+        // 只保留微博热搜内容
+        if(pitem.data && pitem.data.itemid && pitem.data.itemid === 'hot_search') {
+          // 过滤微博热搜内容
+          pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1) : pitem.data.group
+          return true
         }
-        return true
+        return false
       })
     }
   })
 }
 
 function simplifyOnFinderRefresh(body) {
+  // 只保留微博热搜内容
   body.items = body.items.filter(item => {
-    if(item.category && item.category === 'feed') return false
-
-    if(item.data && item.data.title && item.data.title === '热门微博') {
-      item.data.title = '✅发现页面精简完成'
+    if(item.data && item.data.itemid && item.data.itemid === 'hot_search') {
+      // 过滤微博热搜内容
+      item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment')) : item.data.group
+      return true
     }
-
-    return true
+    return false
   })
 }
