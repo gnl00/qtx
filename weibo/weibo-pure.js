@@ -45,7 +45,7 @@ if(url.indexOf('2/profile/me?') !== -1 && body) {
     }
 
     // 移除为你推荐
-    if(item.category.indexOf('mine') !== -1) {
+    if(item.category && item.category.indexOf('mine') !== -1) {
       return false
     }
 
