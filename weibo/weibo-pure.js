@@ -28,7 +28,7 @@ if(url.indexOf('2/profile/me?') !== -1 && body) {
     delete body.teenager_mode_btn
   }
 
-  body.items.filter(item => {
+  body.items = body.items.filter(item => {
     // 移除 VipCenter 占位广告
     if(item.itemId.indexOf('profileme_mine') !== -1) {
       delete item.header.vipCenter
