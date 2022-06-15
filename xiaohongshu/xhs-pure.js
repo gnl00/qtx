@@ -16,11 +16,24 @@ if(body.hasOwnProperty('data') && body.data) {
   //   body.data = {}
   // }
 
-  // homefeed tabbar
+  // homefeed 
   if(url.indexOf('v1/system_service/config') && body.data.hasOwnProperty('tabbar')) {
-    console.log('xhs-pure handle homefeed tabbar')
+    console.log('xhs-pure handle homefeed')
 
+    // tabbar remove '购买'
     body.data.tabbar.tabs = body.data.tabbar.tabs.filter(item => ['购买', '购物'].indexOf(item.title) === -1);
+
+    // home splash
+    if(body.data.splash && body.data.splash.length > 0) body.data.splash.length.length = 0
+    
+    // home store
+    if(body.data.store) body.data.store = {}
+
+    // home store_detect
+    if(body.data.store_detect) body.data.store_detect = false
+
+    // watermark_pic_path
+    if(body.data.watermark_pic_path) body.data.watermark_pic_path = ''
   }
 
   // homefeed categories
