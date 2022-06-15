@@ -30,21 +30,21 @@ if(url.indexOf('2/profile/me?') !== -1 && body) {
 
   body.items = body.items.filter(item => {
     // 移除 VipCenter 占位广告
-    if(item.itemId.indexOf('profileme_mine') !== -1) {
+    if(item.itemId && item.itemId.indexOf('profileme_mine') !== -1) {
       delete item.header.vipCenter
     }
 
     // 从 top8 移除我的钱包、我的订单、创作中心、广告中心
-    if(item.itemId.indexOf('top8') !== -1) {
+    if(item.itemId && item.itemId.indexOf('top8') !== -1) {
       item.items = item.items.filter(it => ["100505_-_pay", "100505_-_ordercenter", "100505_-_productcenter", "100505_-_promote"].indexOf(it.itemId) === -1)
     }
 
     // 移除任务中心
-    if(item.itemId.indexOf('newusertask') !== -1) {
+    if(item.itemId && item.itemId.indexOf('newusertask') !== -1) {
       item = {}
     }
     // 移除我的钱包
-    if(item.itemId.indexOf('mypay') !== -1) {
+    if(item.itemId && item.itemId.indexOf('mypay') !== -1) {
       item = {}
     }
 
