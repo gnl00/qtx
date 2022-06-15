@@ -108,7 +108,7 @@ function simplifyFinder(body) {
         if(pitem.category && pitem.category === 'feed') {
           return false
         } else if(pitem.data && pitem.data.title && pitem.data.title === '热门微博') {
-          return false
+          pitem.data.title = '✅发现页面精简完成'
         } else if(pitem.category === 'card' && pitem.data.itemid === 'hot_search') {
           // 去除发现页面顶部热搜中的商业推广和娱乐内容
           console.log('weibo-pure handle finder')
@@ -125,6 +125,11 @@ function simplifyFinder(body) {
 function simplifyOnFinderRefresh(body) {
   body.items = body.items.filter(item => {
     if(item.category && item.category === 'feed') return false
-    if(item.data && item.data.title && item.data.title === '热门微博') return false
+
+    if(item.data && item.data.title && item.data.title === '热门微博') {
+      item.data.title = '✅发现页面精简完成'
+    }
+
+    return true
   })
 }
