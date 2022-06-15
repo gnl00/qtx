@@ -41,6 +41,11 @@ if(body.hasOwnProperty('data') && body.data) {
     }
   }
 
+  // homefeed ads
+  if(url.indexOf('v6/homefeed?client_volume') !== -1 && body.data.length !== 0) {
+    body.data = body.data.filter(item => !item.is_ads)
+  }
+
   // force enable download
   // if(url.indexOf('v10/note/video/save') && body.data) {
   //   body.data = {
