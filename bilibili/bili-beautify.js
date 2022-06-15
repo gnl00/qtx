@@ -19,8 +19,16 @@ if (!body.hasOwnProperty('data')) {
             console.log('成功');
         }
     } else if(url.indexOf('x/v2/splash/list') !== -1) {
+        // 开屏广告预加载，不可强制删除 @Cuttlefish
         console.log('bili-beautify handle x/v2/splash/list')
-        if(body.data.hasOwnProperty('list')) body.data = {}
+        if(body.data.hasOwnProperty('list')) {
+          body.data.list.forEach(item => {
+            if(item.duration && item.duration !== 0) item.duration = 0
+            // 2050 年
+            if(item.begin_time) item.begin_time = 2524608000
+            if(item.end_time) item.end_time = 2524608000
+          })
+        }
     } else if (url.indexOf("resource/show/tab/v2") !== -1 && method === getMethod) {
         // 右上角top栏
         if (body.data.hasOwnProperty('top')) {
@@ -40,6 +48,9 @@ if (!body.hasOwnProperty('data')) {
             body.data.bottom = body.data.bottom.filter(item => ['首页', '动态', '我的'].indexOf(item.name) !== -1);
             fixPos(body.data.bottom);
         }
+    } else if(url.indexOf('x/v2/activity/inline') !== -1 && body.data) {
+        console.log('bili-beautify handle 顶部消息旁边的活动')
+        body.data = {}
     } else if (url.indexOf("x/v2/feed/index") !== -1 && method === getMethod) {
         console.log('bili-beautify 推荐页');
         if (body.data.hasOwnProperty('items')) {
