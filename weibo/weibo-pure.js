@@ -39,8 +39,12 @@ if(url.indexOf('2/profile/me?') !== -1 && body) {
       item.items = item.items.filter(it => ["100505_-_pay", "100505_-_ordercenter", "100505_-_productcenter", "100505_-_promote"].indexOf(it.itemId) === -1)
     }
 
-    // 移除任务中心|移除我的钱包
-    if(item.itemId.indexOf('newusertask') !== -1 || item.itemId.indexOf('mypay') !== -1) {
+    // 移除任务中心
+    if(item.itemId.indexOf('newusertask') !== -1) {
+      item = {}
+    }
+    // 移除我的钱包
+    if(item.itemId.indexOf('mypay') !== -1) {
       item = {}
     }
 
