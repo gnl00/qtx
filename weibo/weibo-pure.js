@@ -64,7 +64,10 @@ if(url.indexOf('2/search/finder?') !== -1 && body) {
           return false
         } else if(pitem.category === 'card' && pitem.data.itemid === 'hot_search') {
           // 去除发现页面顶部热搜中的商业推广和娱乐内容
-          pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon.indexOf('jian') === -1 || gitem.icon.indexOf('entertainment') === -1) :pitem.data.group
+          console.log('weibo-pure handle finder')
+          pitem.data.group.forEach(gitem => console.log(gitem.icon))
+
+          // pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon.indexOf('jian') === -1 || gitem.icon.indexOf('entertainment') === -1) :pitem.data.group
         }
         return true
       })
