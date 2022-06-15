@@ -20,7 +20,7 @@ if (!body.hasOwnProperty('data')) {
         }
     } else if(url.indexOf('x/v2/splash/list') !== -1) {
         console.log('bili-beautify handle x/v2/splash/list')
-        if(body.data.hasOwnProperty('list')) body.data.list.length = 0
+        if(body.data.hasOwnProperty('list')) body.data = {}
     } else if (url.indexOf("resource/show/tab/v2") !== -1 && method === getMethod) {
         // 右上角top栏
         if (body.data.hasOwnProperty('top')) {
