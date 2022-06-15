@@ -41,11 +41,11 @@ if(url.indexOf('2/profile/me?') !== -1 && body) {
 
     // 移除任务中心
     if(item.itemId && item.itemId.indexOf('newusertask') !== -1) {
-      item = {}
+      return false
     }
     // 移除我的钱包
     if(item.itemId && item.itemId.indexOf('mypay') !== -1) {
-      item = {}
+      return false
     }
 
     // 移除为你推荐
