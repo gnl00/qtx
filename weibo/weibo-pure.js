@@ -66,6 +66,10 @@ if(url.indexOf('2/search/container_timeline?') !== -1 && body) {
   console.log('weibo-pure simplify while dragdown refresh finder')
   simplifyOnFinderRefresh(body)
 }
+if(url.indexOf('2/search/container_discover?') !== -1 && body) {
+  console.log('weibo-pure simplify while auto refresh finder')
+  simplifyOnFinderRefresh(body)
+}
 
 
 // 国际版/极速版 热搜移除娱乐内容
@@ -122,7 +126,7 @@ function simplifyOnFinderRefresh(body) {
   body.items = body.items.filter(item => {
     if(item.data && item.data.itemid && item.data.itemid === 'hot_search') {
       // 过滤微博热搜内容
-      item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment')) : item.data.group
+      item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment')) === -1 : item.data.group
       return true
     }
     return false
