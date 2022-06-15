@@ -4,7 +4,7 @@ const getMethod = "GET";
 const notifiTitle = "xhs-pure";
 let body = JSON.parse($response.body);
 
-// 微博 推荐视频
+// 微博 移除推荐视频
 if(url.indexOf('2/video/tiny_stream_video_list') !== -1 && body.hasOwnProperty('data')) {
   console.log('weibo-pure handle tiny_stream_video_list')
     body.data = {}
@@ -18,6 +18,57 @@ if(url.indexOf('2/video/tiny_stream_channel_list?') !== -1 && body) {
   body.force_refresh_interval = '30000'
   delete body.select_id
 }
+
+// 微博 我的页面精简
+if(url.indexOf('2/profile/me?') !== -1 && body) {
+  console.log('weibo-pure profile 精简')
+
+  // 移除顶部青少年模式按钮
+  if(body.teenager_mode_btn) {
+    delete body.teenager_mode_btn
+  }
+
+  body.items.filter(item => {
+    // 移除 VipCenter 占位广告
+    if(item.itemId.indexOf('profileme_mine') !== -1) {
+      delete item.header.vipCenter
+    }
+
+    // 从 top8 移除我的钱包、我的订单、创作中心、广告中心
+    if(item.itemId.indexOf('top8') !== -1) {
+      item.items = item.items.filter(it => ["100505_-_pay", "100505_-_ordercenter", "100505_-_productcenter", "100505_-_promote"].indexOf(it.itemId) === -1)
+    }
+
+    // 移除任务中心|移除我的钱包
+    if(item.itemId.indexOf('newusertask') !== -1 || item.itemId.indexOf('mypay') !== -1) {
+      item = {}
+    }
+
+    // 移除为你推荐
+    if(item.category.indexOf('mine') !== -1) return false
+
+    return true
+  })
+}
+
+// 微博 发现页面精简
+if(url.indexOf('2/search/finder?') !== -1 && body) {
+  body.channelInfo.channels = body.channelInfo.channels.filter(item => item.name === '发现')
+
+  body.channelInfo.channels.forEach(item => {
+    if(item.payload.items.length !== 0) {
+      item.payload.items = item.payload.items.filter(pitem=> {
+        if(pitem.category === 'feed') {
+          return false
+        } else if(pitem.category === 'card' && pitem.data.itemid === 'hot_search') {
+          // 去除发现页面顶部热搜中的商业推广和娱乐内容
+          pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon.indexOf('jian') === -1 || gitem.icon.indexOf('entertainment') === -1) :pitem.data.group
+        }
+      })
+    }
+  })
+}
+
 
 // 国际版/极速版 热搜移除娱乐内容
 if(url.indexOf('/portal.php?a=search_topic') !== -1 && body.data.length !== 0) {
