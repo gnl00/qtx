@@ -40,9 +40,11 @@ https://raw.githubusercontent.com/gnl00/qtx/master/coolapk/coolapk-pure.conf, ta
 - [x] 去除回复楼层中的广告
 
 
-**微博国际版/极速版**
+**微博极速版**
+
 ```
 https://raw.githubusercontent.com/gnl00/qtx/master/weibo/weibo-pure.conf, tag=weibo-pure, update-interval=172800, opt-parser=true, enabled=true
 ```
 
-- [x] 热搜中的娱乐内容
+- [x] 移除热搜中的娱乐内容
+- [x] 移除热文娱榜

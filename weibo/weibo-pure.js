@@ -28,6 +28,14 @@ if(url.indexOf('/portal.php?ct=feed&a=search_topic') !== -1 && body.data) {
   body.data = body.data.filter(item => ['剧集', '电影', '综艺'].indexOf(item.subject_label) === -1)
 }
 
+// 移除文娱榜
+if(url.indexOf('/portal.php?a=search_discover') !== -1 && body.data) {
+  body.data = body.data.filter(item => '文娱榜' !== item.category_name || 'search_ent' !== item.type)
+}
+if(url.indexOf('/portal.php?a=search_ent') !== -1 && body.data) {
+  body.data = {}
+}
+
 body = JSON.stringify(body);
 $done({
     body
