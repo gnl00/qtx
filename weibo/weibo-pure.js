@@ -59,24 +59,12 @@ if(url.indexOf('2/profile/me?') !== -1 && body) {
 
 // 微博 发现页面精简
 if(url.indexOf('2/search/finder?') !== -1 && body) {
-  body.channelInfo.channels = body.channelInfo.channels.filter(item => item.name === '发现')
-
-  body.channelInfo.channels.forEach(item => {
-    if(item.payload.items.length !== 0) {
-      item.payload.items = item.payload.items.filter(pitem=> {
-        if(pitem.category === 'feed') {
-          return false
-        } else if(pitem.category === 'card' && pitem.data.itemid === 'hot_search') {
-          // 去除发现页面顶部热搜中的商业推广和娱乐内容
-          console.log('weibo-pure handle finder')
-          pitem.data.group.forEach(gitem => console.log(gitem.icon))
-
-          // pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon.indexOf('jian') === -1 || gitem.icon.indexOf('entertainment') === -1) :pitem.data.group
-        }
-        return true
-      })
-    }
-  })
+  console.log('weibo-pure simplify while open finder')
+  simplifyFinder(body)
+}
+if(url.indexOf('2/search/container_timeline?') !== -1 && body) {
+  console.log('weibo-pure simplify while dragdown refresh finder')
+  simplifyOnFinderRefresh(body)
 }
 
 
@@ -109,4 +97,34 @@ $done({
 
 function entertainmentContentFilter(item) {
   return ['剧集', '电影', '综艺'].indexOf(item.subject_label) === -1
+}
+
+function simplifyFinder(body) {
+  body.channelInfo.channels = body.channelInfo.channels.filter(item => item.name === '发现')
+
+  body.channelInfo.channels.forEach(item => {
+    if(item.payload.items.length !== 0) {
+      item.payload.items = item.payload.items.filter(pitem=> {
+        if(pitem.category && pitem.category === 'feed') {
+          return false
+        } else if(pitem.data && pitem.data.title && pitem.data.title === '热门微博') {
+          return false
+        } else if(pitem.category === 'card' && pitem.data.itemid === 'hot_search') {
+          // 去除发现页面顶部热搜中的商业推广和娱乐内容
+          console.log('weibo-pure handle finder')
+          pitem.data.group = pitem.data.group.filter(gitem => {
+            if(gitem.icon) return gitem.icon.indexOf('jian') === -1 || gitem.icon.indexOf('entertainment') === -1
+          })
+        }
+        return true
+      })
+    }
+  })
+}
+
+function simplifyOnFinderRefresh(body) {
+  body.items = body.items.filter(item => {
+    if(item.category && item.category === 'feed') return false
+    if(item.data && item.data.title && item.data.title === '热门微博') return false
+  })
 }
