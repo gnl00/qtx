@@ -126,7 +126,7 @@ function simplifyOnFinderRefresh(body) {
   body.items = body.items.filter(item => {
     if(item.data && item.data.itemid && item.data.itemid === 'hot_search') {
       // 过滤微博热搜内容
-      item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment')) === -1 : item.data.group
+      item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1) : item.data.group
       return true
     }
     return false
