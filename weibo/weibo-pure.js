@@ -73,6 +73,7 @@ if(url.indexOf('2/search/container_discover?') !== -1 && body) {
 
 // 微博 热搜榜精简
 if(url.indexOf('2/page?') !== -1 && body) {
+  console.log('weibo-pure handle 2/page?')
 
   // 去掉除了热搜以外的 channel
   if(body.pageInfo && body.pageInfo.cardlist_head_cards.length !== 0) {
@@ -84,7 +85,24 @@ if(url.indexOf('2/page?') !== -1 && body) {
   // 去掉热搜 channel 中的文娱内容
   if(body.cards && body.cards.length !== 0) {
     body.cards = body.cards.filter(item => item.title && ['实时热点，每分钟更新一次', '实时上升热点'].indexOf(item.title) !== -1)
+  
+    // 去掉实时热点中的剧集|电影|综艺内容
+    body.cards.forEach(item => {
+      if(item.itemid && item.itemid === 'hotword' && item.card_group && item.card_group.length !==0) {
+        item.card_group = item.card_group.filter(gitem => {
+          if(gitem.desc_extr) {
+            return gitem.desc_extr.indexOf('剧集') === -1 && gitem.desc_extr.indexOf('综艺') === -1 && gitem.desc_extr.indexOf('电影') === -1
+          }
+          return true
+        })
+      }
+    })
   }
+
+  // 去掉微博热搜 banner
+  if(body.pageInfo && body.pageInfo.banner_info && body.pageInfo.banner_info.pic_items) body.pageInfo.banner_info.pic_items.length = 0
+  if(body.pageInfo && body.pageInfo.topheader) delete body.pageInfo.topheader
+
 }
 
 
@@ -127,6 +145,9 @@ function simplifyFinder(body) {
       item.payload.items = item.payload.items.filter(pitem=> {
         // 只保留微博热搜内容
         if(pitem.data && pitem.data.itemid && pitem.data.itemid === 'hot_search') {
+          // 展示单列内容
+          pitem.data.col = 1
+
           // 过滤微博热搜内容
           pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1) : pitem.data.group
           return true
@@ -141,6 +162,9 @@ function simplifyOnFinderRefresh(body) {
   // 只保留微博热搜内容
   body.items = body.items.filter(item => {
     if(item.data && item.data.itemid && item.data.itemid === 'hot_search') {
+      // 展示单列内容
+      item.data.col = 1
+      
       // 过滤微博热搜内容
       item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1) : item.data.group
       return true
