@@ -1,7 +1,7 @@
 const url = $request.url;
 const method = $request.method;
 const getMethod = "GET";
-const notifiTitle = "dingdatech-pure";
+const notifiTitle = "coolapk-pure";
 let body = JSON.parse($response.body);
 
 if(body.hasOwnProperty('data')) {

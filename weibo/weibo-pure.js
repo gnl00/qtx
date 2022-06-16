@@ -1,7 +1,7 @@
 const url = $request.url;
 const method = $request.method;
 const getMethod = "GET";
-const notifiTitle = "xhs-pure";
+const notifiTitle = "weibo-pure";
 let body = JSON.parse($response.body);
 
 // 微博 移除推荐视频
@@ -59,16 +59,32 @@ if(url.indexOf('2/profile/me?') !== -1 && body) {
 
 // 微博 发现页面精简
 if(url.indexOf('2/search/finder?') !== -1 && body) {
-  console.log('weibo-pure simplify while open finder')
+  console.log('weibo-pure simplify while finder open')
   simplifyFinder(body)
 }
 if(url.indexOf('2/search/container_timeline?') !== -1 && body) {
-  console.log('weibo-pure simplify while dragdown refresh finder')
+  console.log('weibo-pure simplify while finder dragdown refresh')
   simplifyOnFinderRefresh(body)
 }
 if(url.indexOf('2/search/container_discover?') !== -1 && body) {
-  console.log('weibo-pure simplify while auto refresh finder')
+  console.log('weibo-pure simplify while finder auto refresh')
   simplifyOnFinderRefresh(body)
+}
+
+// 微博 热搜榜精简
+if(url.indexOf('2/page?') !== -1 && body) {
+
+  // 去掉除了热搜以外的 channel
+  if(body.pageInfo && body.pageInfo.cardlist_head_cards.length !== 0) {
+    body.pageInfo.cardlist_head_cards.forEach(item => {
+      item.channel_list = item.channel_list && item.channel_list.length !== 0 ? item.channel_list.filter(citem => citem.name === '热搜') : item.channel_list
+    })
+  }
+
+  // 去掉热搜 channel 中的文娱内容
+  if(body.card && body.card.length !== 0) {
+    body.card = body.card.filter(item => item.title && ['实时热点，每分钟更新一次', '实时上升热点'].indexOf(item.title) !== -1)
+  }
 }
 
 
@@ -86,7 +102,7 @@ if(url.indexOf('/portal.php?ct=feed&a=search_topic') !== -1 && body.data) {
   body.data = body.data.filter(entertainmentContentFilter)
 }
 
-// 国际版/极速版 移除文娱榜
+// 国际版/极速版 热搜移除文娱榜
 if(url.indexOf('/portal.php?a=search_discover') !== -1 && body.data) {
   body.data = body.data.filter(item => '文娱榜' !== item.category_name || 'search_ent' !== item.type)
 }
