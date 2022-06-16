@@ -98,11 +98,6 @@ if(url.indexOf('2/page?') !== -1 && body) {
       }
     })
   }
-
-  // 去掉微博热搜 banner
-  if(body.pageInfo && body.pageInfo.banner_info && body.pageInfo.banner_info.pic_items) body.pageInfo.banner_info.pic_items.length = 0
-  if(body.pageInfo && body.pageInfo.topheader) delete body.pageInfo.topheader
-
 }
 
 
@@ -164,7 +159,7 @@ function simplifyOnFinderRefresh(body) {
     if(item.data && item.data.itemid && item.data.itemid === 'hot_search') {
       // 展示单列内容
       item.data.col = 1
-      
+
       // 过滤微博热搜内容
       item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1) : item.data.group
       return true
