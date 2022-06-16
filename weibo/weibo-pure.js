@@ -161,7 +161,7 @@ function simplifyOnFinderRefresh(body) {
       item.data.col = 1
 
       // 过滤微博热搜内容
-      item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1) : item.data.group
+      item.data.group = item.data.group.length !== 0 ? item.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1 && gitem.icon.indexOf('recom') === -1) : item.data.group
       return true
     }
     return false
