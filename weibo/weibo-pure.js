@@ -144,7 +144,7 @@ function simplifyFinder(body) {
           pitem.data.col = 1
 
           // 过滤微博热搜内容
-          pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1) : pitem.data.group
+          pitem.data.group = pitem.data.group.length !== 0 ? pitem.data.group.filter(gitem => gitem.icon && gitem.icon.indexOf('jian') === -1 && gitem.icon.indexOf('entertainment') === -1 && gitem.icon.indexOf('recom') === -1) : pitem.data.group
           return true
         }
         return false
