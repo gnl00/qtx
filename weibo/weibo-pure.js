@@ -82,8 +82,8 @@ if(url.indexOf('2/page?') !== -1 && body) {
   }
 
   // 去掉热搜 channel 中的文娱内容
-  if(body.card && body.card.length !== 0) {
-    body.card = body.card.filter(item => item.title && ['实时热点，每分钟更新一次', '实时上升热点'].indexOf(item.title) !== -1)
+  if(body.cards && body.cards.length !== 0) {
+    body.cards = body.cards.filter(item => item.title && ['实时热点，每分钟更新一次', '实时上升热点'].indexOf(item.title) !== -1)
   }
 }
 
