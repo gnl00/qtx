@@ -41,7 +41,7 @@ if(body.hasOwnProperty('data')) {
     }
   }
 
-  // 去广告
+  // 去广告 @app2smile
   if (url.indexOf("x/v2/feed/index") !== -1 && method === getMethod) {
     console.log('bili-beautify handle 推荐页广告');
     if (body.data.hasOwnProperty('items')) {

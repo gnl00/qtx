@@ -9,7 +9,7 @@
 https://raw.githubusercontent.com/gnl00/qtx/master/bilibili/bili-beautify.conf, tag=bili-beautify, update-interval=172800, opt-parser=true, enabled=true
 ```
 
-- [x] 去广告（基于 app2smile 大佬）
+- [x] 去广告（基于 @app2smile）
 - [x] 首页 tab 调整，去除多余 tab，仅保留推荐和热门
 - [x] bottom 调整，仅保留首页，热门和我的
 - [x] 我的页面调整，精简推荐服务

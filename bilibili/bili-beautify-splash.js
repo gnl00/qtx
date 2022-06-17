@@ -22,6 +22,12 @@ if(url.indexOf('x/v2/splash/event/list2') !== -1 && rawBody) {
   handleRawBody()
 }
 
+// splash/brand/list
+if(url.indexOf('x/v2/splash/brand/list') !== -1 && rawBody) {
+  console.log('bili-beautify handle splash/brand/list')
+  handleRawBody()
+}
+
 function handleRawBody() {
   if(rawBody && typeof(rawBody) === 'string') {
     // check if it is json
@@ -31,6 +37,7 @@ function handleRawBody() {
       if(body && body.hasOwnProperty('data') && body.data.hasOwnProperty('show')) {
         delete body.data.show
       } else if(body && body.hasOwnProperty('data') && body.data.hasOwnProperty('list') && body.data.list.length !== 0) {
+        // 有些情况下不能强制删除开屏广告 @Cuttlefish
         body.data.list.forEach(item => {
           if(item.duration && item.duration !== 0) item.duration = 0
           // 2050 年
@@ -43,8 +50,10 @@ function handleRawBody() {
       rawBody = JSON.stringify(body)
 
     } catch(e) {
+      // not json
       if(e instanceof SyntaxError) {
-        // not json
+        rawBody = null
+      } else {
         rawBody = null
       }
     }
