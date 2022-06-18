@@ -14,6 +14,7 @@ https://raw.githubusercontent.com/gnl00/qtx/master/bilibili/bili-beautify.conf, 
 - [x] bottom 调整，仅保留首页，热门和我的
 - [x] 我的页面调整，精简推荐服务
 - [x] 去除青少模式每天两次提醒
+- [x] 去除首页左上角覆盖在头像上的故事 
 
 
 
