@@ -9,12 +9,17 @@ if(body.hasOwnProperty('data')) {
   if (url.indexOf("resource/show/tab/v2") !== -1 && method === getMethod) {
     console.log('bili-beautify handle 首页');
 
-    // 首页右上角 top 栏，去掉除消息之外的内容
+    // 首页 top 栏右侧，去掉除消息之外的内容
     if (body.data.hasOwnProperty('top')) {
         console.log('bili-beautify handle 首页 top');
         body.data.top = body.data.top.filter(item => '消息' === item.name);
         fixPos(body.data.top);
     }
+  // 首页 top 栏左侧，去掉头像左下角的 story
+  if (body.data.hasOwnProperty('top_left')) {
+    console.log('bili-beautify handle 首页 story');
+    delete body.data.top_left
+  }
 
     // 首页 tab 栏
     if (body.data.hasOwnProperty('tab'))  {

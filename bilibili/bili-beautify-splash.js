@@ -23,9 +23,10 @@ if(url.indexOf('x/v2/splash/event/list2') !== -1 && rawBody) {
 }
 
 // splash/brand/list
+// bilibili 官方自定义开屏画面
 if(url.indexOf('x/v2/splash/brand/list') !== -1 && rawBody) {
-  console.log('bili-beautify handle splash/brand/list')
-  handleRawBody()
+  // console.log('bili-beautify handle splash/brand/list')
+  // catch and do nothing，防止后面其他重写规则拦截
 }
 
 function handleRawBody() {
