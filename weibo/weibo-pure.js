@@ -129,7 +129,7 @@ $done({
 });
 
 function entertainmentContentFilter(item) {
-  return ['剧集', '电影', '综艺'].indexOf(item.subject_label) === -1
+  return ['剧集', '电影', '综艺', '音乐', '盛典'].indexOf(item.subject_label) === -1
 }
 
 function simplifyFinder(body) {
