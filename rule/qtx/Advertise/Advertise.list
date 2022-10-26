@@ -57,6 +57,7 @@ HOST-SUFFIX, pgdt.ugdtimg.com, REJECT
 
 # keep
 HOST-SUFFIX, kad.gotokeep.com, REJECT
+HOST-SUFFIX, apm.gotokeep.com, REJECT
 
 # wechat
 HOST-KEYWORD, wxsnsdy, REJECT
