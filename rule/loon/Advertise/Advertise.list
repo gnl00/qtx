@@ -53,3 +53,11 @@ DOMAIN-SUFFIX, mi.gdt.qq.com, REJECT
 DOMAIN-SUFFIX, wxdiiing.xiangbababus.com, REJECT
 DOMAIN-SUFFIX, sf3-fe-tos.pglstatp-toutiao.com, REJECT
 DOMAIN-SUFFIX, pgdt.ugdtimg.com, REJECT
+
+# keep
+DOMAIN-SUFFIX, kad.gotokeep.com, REJECT
+DOMAIN-SUFFIX, apm.gotokeep.com, REJECT
+
+# wechat
+DOMAIN-KEYWORD, wxsnsdy, REJECT
+DOMAIN-KEYWORD, wxsnsdythumb, REJECT
