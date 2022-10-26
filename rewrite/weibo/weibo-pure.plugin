@@ -1,0 +1,17 @@
+#!name=weibo-pure
+#!desc=微博去广告，过滤热搜榜
+
+[MITM]
+hostname = api.weibo.cn, weibointl.api.weibo.cn
+
+[URL Rewrite]
+^https:\/\/api\.weibo\.cn\/2\/(video\/tiny_stream_video_list?|!\/multimedia\/playback\/batch_get) _ reject
+
+[Script]
+http-response https:\/\/api\.weibo\.cn\/2\/video\/tiny_stream_channel_list? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js, tag=weibo-pure
+http-response https:\/\/api\.weibo\.cn\/2\/profile\/me? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js, tag=weibo-pure
+http-response https:\/\/api\.weibo\.cn\/2\/search\/(finder?|container_timeline?|container_discover?) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js, tag=weibo-pure
+http-response https:\/\/api\.weibo\.cn\/2\/page? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js, tag=weibo-pure
+
+http-response https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=(search_topic|search_discover) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js, tag=weibo-pure
+http-response https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?ct=feed&a=(search_topic|trends) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js, tag=weibo-pure

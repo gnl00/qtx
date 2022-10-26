@@ -1,0 +1,8 @@
+#!name=bdcloud-pure
+#!desc=百度网盘去除营销广告
+
+[Script]
+http-response https:\/\/pan\.baidu\.com\/(api\/usercfg?|act\/v2\/(bchannel|welfare)\/list?) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/baiducloud/baiducloud-pure.js, tag=bdcloud-pure
+
+[MITM]
+hostname = pan.baidu.com

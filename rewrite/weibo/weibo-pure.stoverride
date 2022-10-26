@@ -1,0 +1,60 @@
+name: weibo-pure
+desc: 微博去广告，过滤热搜榜
+
+http:
+  mitm:
+    - "api.weibo.cn"
+    - "weibointl.api.weibo.cn"
+  url-rewrite:
+    - ^https:\/\/api\.weibo\.cn\/2\/(video\/tiny_stream_video_list?|!\/multimedia\/playback\/batch_get) - reject
+  script:
+    - match: ^https:\/\/api\.weibo\.cn\/2\/video\/tiny_stream_channel_list?
+      name: wb_ad_1
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https:\/\/api\.weibo\.cn\/2\/profile\/me?
+      name: wb_ad_2
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https:\/\/api\.weibo\.cn\/2\/search\/(finder?|container_timeline?|container_discover?)
+      name: wb_ad_3
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https:\/\/api\.weibo\.cn\/2\/page?
+      name: wb_ad_4
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=(search_topic|search_discover)
+      name: wb_ad_5
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?ct=feed&a=(search_topic|trends)
+      name: wb_ad_6
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  wb_ad_1:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+    interval: 86400
+  wb_ad_2:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+    interval: 86400
+  wb_ad_3:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+    interval: 86400
+  wb_ad_4:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+    interval: 86400
+  wb_ad_5:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+    interval: 86400
+  wb_ad_6:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+    interval: 86400

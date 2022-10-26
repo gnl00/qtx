@@ -1,0 +1,18 @@
+name: xhs-pure
+desc: 小红书去广告，去下载水印
+
+http:
+  mitm:
+    - "edith.xiaohongshu.com"
+    - "xiaohongshu.com"
+  script:
+    - match: ^https:\/\/(edith|www)\.xiaohongshu\.com\/api\/sns\/(v1\/(system_service\/config|ads\/resource?)|v2\/(note\/feed?|system_service\/splash)|v3\/note\/videofeed?|v6\/homefeed\/categories?|v6\/homefeed\?client_volume|v10\/note\/video\/save?)
+      name: xhs_ad
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  xhs_ad:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/xiaohongshu/xhs-pure.js
+    interval: 86400

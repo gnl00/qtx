@@ -1,0 +1,14 @@
+# 叮嗒出行
+DOMAIN-SUFFIX, openlog.bianxianmao.com, REJECT
+DOMAIN-SUFFIX, p3-be-pack-sign.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, p9-be-pack-sign.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, p26-be-pack-sign.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, api-access.pangolin-sdk-toutiao.com, REJECT
+DOMAIN-SUFFIX, sysdk.cl2009.com, REJECT
+DOMAIN-SUFFIX, open.e.kuaishou.com, REJECT
+DOMAIN-SUFFIX, adashbc.ut.taobao.com, REJECT
+DOMAIN-SUFFIX, pubgw.api.ddxq.mobi, REJECT
+DOMAIN-SUFFIX, mi.gdt.qq.com, REJECT
+DOMAIN-SUFFIX, wxdiiing.xiangbababus.com, REJECT
+DOMAIN-SUFFIX, sf3-fe-tos.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, pgdt.ugdtimg.com, REJECT

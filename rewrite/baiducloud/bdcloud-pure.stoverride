@@ -1,0 +1,18 @@
+name: baiducloud-pure
+desc: 百度网盘移除首页营销广告
+
+http:
+  mitm:
+    - "pan.baidu.com"
+  script:
+    # 百度网盘去除营销广告
+    - match: ^https:\/\/pan\.baidu\.com\/(api\/usercfg?|act\/v2\/(bchannel|welfare)\/list?)
+      name: bd_ad_index
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  bd_ad_index:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/baiducloud/baiducloud-pure.js
+    interval: 86400

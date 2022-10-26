@@ -1,0 +1,55 @@
+# Advertise rules for Loon
+
+# 易校园
+DOMAIN-SUFFIX, mazu.m.qq.com, REJECT
+DOMAIN-SUFFIX, adash.man.aliyuncs.com, REJECT
+DOMAIN-SUFFIX, adashxgc.ut.taobao.com, REJECT
+DOMAIN-SUFFIX, da.anythinktech.com, REJECT
+
+DOMAIN-SUFFIX, mobads.baidu.com, REJECT
+DOMAIN-SUFFIX, t-dsp.pinduoduo.com, REJECT
+DOMAIN-SUFFIX, win.gdt.qq.com, REJECT
+DOMAIN-SUFFIX, sdk.e.qq.com, REJECT
+DOMAIN-SUFFIX, api.share.mob.com, REJECT
+DOMAIN-SUFFIX, cn-new-ap-northeast-2a-hb.rayjump.com, REJECT
+DOMAIN-SUFFIX, dm.toutiao.com, REJECT
+DOMAIN-SUFFIX, cn-new-ap-northeast-2c-hb.rayjump.com, REJECT
+DOMAIN-SUFFIX, mon.zijieapi.com, REJECT
+DOMAIN-SUFFIX, log-api.pangolin-sdk-toutiao.com, REJECT
+DOMAIN-SUFFIX, bgg.baidu.com, REJECT
+DOMAIN-SUFFIX, ios.bugly.qq.com, REJECT
+DOMAIN-SUFFIX, log-verify.mob.com, REJECT
+DOMAIN-SUFFIX, tk.anythinktech.com, REJECT
+DOMAIN-SUFFIX, sdk.push.mob.com, REJECT
+DOMAIN-SUFFIX, toblog.ctobsnssdk.com, REJECT
+DOMAIN-SUFFIX, bjimp.voiceads.cn, REJECT
+
+DOMAIN-KEYWORD, adx-cn, REJECT
+DOMAIN-KEYWORD, second-card, REJECT
+DOMAIN-KEYWORD, zijieapi, REJECT
+DOMAIN-KEYWORD, gifshow, REJECT
+DOMAIN-KEYWORD, dutils, REJECT
+DOMAIN-KEYWORD, adkwai, REJECT
+DOMAIN-KEYWORD, pangolin, REJECT
+DOMAIN-KEYWORD, rayjump, REJECT
+DOMAIN-KEYWORD, voiceads, REJECT
+DOMAIN-KEYWORD, advertising, REJECT
+DOMAIN-KEYWORD, mobads, REJECT
+DOMAIN-KEYWORD, iflyad, REJECT
+
+URL-REGEX, *advertising*, REJECT
+
+# 叮嗒出行
+DOMAIN-SUFFIX, openlog.bianxianmao.com, REJECT
+DOMAIN-SUFFIX, p3-be-pack-sign.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, p9-be-pack-sign.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, p26-be-pack-sign.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, api-access.pangolin-sdk-toutiao.com, REJECT
+DOMAIN-SUFFIX, sysdk.cl2009.com, REJECT
+DOMAIN-SUFFIX, open.e.kuaishou.com, REJECT
+DOMAIN-SUFFIX, adashbc.ut.taobao.com, REJECT
+DOMAIN-SUFFIX, pubgw.api.ddxq.mobi, REJECT
+DOMAIN-SUFFIX, mi.gdt.qq.com, REJECT
+DOMAIN-SUFFIX, wxdiiing.xiangbababus.com, REJECT
+DOMAIN-SUFFIX, sf3-fe-tos.pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, pgdt.ugdtimg.com, REJECT

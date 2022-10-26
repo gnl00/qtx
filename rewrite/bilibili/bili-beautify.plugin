@@ -1,0 +1,8 @@
+#!name=bili-beautify
+#!desc=哔哩哔哩简化[我的]页面
+
+[Script]
+http-response https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|mode\/status?|myinfo) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-beautify-account.js, tag=bili-beautify
+
+[MITM]
+hostname = app.bilibili.com, grpc.biliapi.net

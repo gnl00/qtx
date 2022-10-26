@@ -1,0 +1,17 @@
+name: coolapk-pure
+desc: 酷安全局去广告
+
+http:
+  mitm:
+    - "api.coolapk.com"
+  script:
+    - match: ^https:\/\/api\.coolapk\.com\/v6\/(main\/indexV8?|feed\/(detail|replyList))
+      name: coolapk_ad
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  coolapk_ad:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/coolapk/coolapk-pure.js
+    interval: 86400

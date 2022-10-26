@@ -1,0 +1,39 @@
+# 易校园
+
+HOST-SUFFIX, mazu.m.qq.com, REJECT
+HOST-SUFFIX, adash.man.aliyuncs.com, REJECT
+HOST-SUFFIX, adashxgc.ut.taobao.com, REJECT
+HOST-SUFFIX, da.anythinktech.com, REJECT
+
+HOST-SUFFIX, mobads.baidu.com, REJECT
+HOST-SUFFIX, t-dsp.pinduoduo.com, REJECT
+HOST-SUFFIX, win.gdt.qq.com, REJECT
+HOST-SUFFIX, sdk.e.qq.com, REJECT
+HOST-SUFFIX, api.share.mob.com, REJECT
+HOST-SUFFIX, cn-new-ap-northeast-2a-hb.rayjump.com, REJECT
+HOST-SUFFIX, dm.toutiao.com, REJECT
+HOST-SUFFIX, cn-new-ap-northeast-2c-hb.rayjump.com, REJECT
+HOST-SUFFIX, mon.zijieapi.com, REJECT
+HOST-SUFFIX, log-api.pangolin-sdk-toutiao.com, REJECT
+HOST-SUFFIX, bgg.baidu.com, REJECT
+HOST-SUFFIX, ios.bugly.qq.com, REJECT
+HOST-SUFFIX, log-verify.mob.com, REJECT
+HOST-SUFFIX, tk.anythinktech.com, REJECT
+HOST-SUFFIX, sdk.push.mob.com, REJECT
+HOST-SUFFIX, toblog.ctobsnssdk.com, REJECT
+HOST-SUFFIX, bjimp.voiceads.cn, REJECT
+
+HOST-KEYWORD, adx-cn, REJECT
+HOST-KEYWORD, anythinktech, REJECT
+HOST-KEYWORD, second-card, REJECT
+HOST-KEYWORD, dutils, REJECT
+HOST-KEYWORD, adkwai, REJECT
+HOST-KEYWORD, pangolin, REJECT
+HOST-KEYWORD, pangolin-sdk-toutiao, REJECT
+HOST-KEYWORD, rayjump, REJECT
+HOST-KEYWORD, voiceads, REJECT
+HOST-KEYWORD, advertising, REJECT
+HOST-KEYWORD, mobads, REJECT
+HOST-KEYWORD, iflyad, REJECT
+HOST-KEYWORD, zijieapi, REJECT
+HOST-KEYWORD, gifshow, REJECT

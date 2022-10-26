@@ -1,0 +1,42 @@
+#!name=ad-remove
+#!desc=ad-remove
+
+[MITM]
+hostname = mazu.m.qq.com,adash.man.aliyuncs.com,adashxgc.ut.taobao.com,da.anythinktech.com,mobads.baidu.com,t-dsp.pinduoduo.com,win.gdt.qq.com,sdk.e.qq.com,api.share.mob.com,cn-new-ap-northeast-2a-hb.rayjump.com,dm.toutiao.com,cn-new-ap-northeast-2c-hb.rayjump.com,mon.zijieapi.com,log-api.pangolin-sdk-toutiao.com,bgg.baidu.com,ios.bugly.qq.com,log-verify.mob.com,tk.anythinktech.com,sdk.push.mob.com,toblog.ctobsnssdk.com,bjimp.voiceads.cn,*?.adx-cn.*,*?.second-card.*,*?.zijieapi.*,*?.gifshow.*,*?.dutils.*,*?.adkwai.*,*?.pangolin.*,*?.rayjump.*,*?.voiceads.*,*?.advertising.*,*?.mobads.*,*?.iflyad.*,compus.xiaofubao.com
+
+[URL Rewrite]
+
+^(http|https):\/\/adash\.man\.aliyuncs\.com? _ reject
+^(http|https):\/\/adashxgc\.ut\.taobao\.com? _ reject
+^(http|https):\/\/da\.anythinktech\.com? _ reject
+^(http|https):\/\/mobads\.baidu\.com? _ reject
+^(http|https):\/\/t-dsp\.pinduoduo\.com? _ reject
+^(http|https):\/\/win\.gdt\.qq\.com? _ reject
+^(http|https):\/\/sdk\.e\.qq\.com? _ reject
+^(http|https):\/\/api\.share\.mob\.com? _ reject
+^(http|https):\/\/cn-new-ap-northeast-2a-hb\.rayjump\.com? _ reject
+^(http|https):\/\/dm\.toutiao\.com? _ reject
+^(http|https):\/\/cn-new-ap-northeast-2c-hb\.rayjump\.com? _ reject
+^(http|https):\/\/mon\.zijieapi\.com? _ reject
+^(http|https):\/\/bgg\.baidu\.com? _ reject
+^(http|https):\/\/ios\.bugly\.qq\.com? _ reject
+^(http|https):\/\/log-verify\.mob\.com? _ reject
+^(http|https):\/\/tk\.anythinktech\.com? _ reject
+^(http|https):\/\/sdk\.push\.mob\.com? _ reject
+^(http|https):\/\/toblog\.ctobsnssdk\.com? _ reject
+^(http|https):\/\/bjimp\.voiceads\.cn? _ reject
+
+^(?=.*advertising).*$ _ reject-dict
+^(?=.*adx-cn).*$ _ reject
+^(?=.*second-card).*$ _ reject
+^(?=.*zijieapi).*$ _ reject
+^(?=.*gifshow).*$ _ reject
+^(?=.*dutils).*$ _ reject
+^(?=.*adkwai).*$ _ reject
+^(?=.*pangolin).*$ _ reject
+^(?=.*rayjump).*$ _ reject
+^(?=.*voiceads).*$ _ reject
+^(?=.*mobads).*$ _ reject
+^(?=.*iflyad).*$ _ reject
+^(?=.*pangolin).*$ _ reject
+^(?=.*pangolin-sdk-toutiao).*$ _ reject

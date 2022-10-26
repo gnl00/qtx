@@ -1,0 +1,7 @@
+#!name=keep-pure
+#!desc=移除首页信息流
+[MITM]
+hostname = api.gotokeep.com
+
+[Script]
+http-response https:\/\/api\.gotokeep\.com\/(homepage\/v6\/tab|config\/v3\/basic) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/keep/keep-pure.js, tag=keep-pure

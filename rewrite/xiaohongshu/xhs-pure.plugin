@@ -1,0 +1,8 @@
+#!name=xhs-pure
+#!desc=小红书去广告，去下载水印
+
+[MITM]
+hostname = edith.xiaohongshu.com, xiaohongshu.com
+
+[Script]
+http-response https:\/\/(edith|www)\.xiaohongshu\.com\/api\/sns\/(v1\/(system_service\/config|ads\/resource?)|v2\/(note\/feed?|system_service\/splash)|v3\/note\/videofeed?|v6\/homefeed\/categories?|v6\/homefeed\?client_volume|v10\/note\/video\/save?) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/xiaohongshu/xhs-pure.js, tag=xhs-pure

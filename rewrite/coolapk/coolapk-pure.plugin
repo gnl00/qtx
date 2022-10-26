@@ -1,0 +1,8 @@
+#!name=coolapk-pure
+#!desc=酷安全局去广告
+
+[MITM]
+hostname = api.coolapk.com
+
+[Script]
+http-response https:\/\/api\.coolapk\.com\/v6\/(main\/indexV8?|feed\/(detail|replyList)) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/coolapk/coolapk-pure.js, tag=coolapk-pure
