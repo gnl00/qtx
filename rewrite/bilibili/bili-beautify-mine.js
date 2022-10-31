@@ -15,13 +15,13 @@ if(body.hasOwnProperty('data')) {
   }
 
   // unlock 1080p 高码率 @ddgksf2013
-  if(url.indexOf("x/v2/account/myinfo") !== -1 && body.data && body.data.vip) {
+  if(url.indexOf("x/v2/account/myinfo") !== -1) {
     console.log('bili-beautify handle 1080p 高码率')
 
-    if(body.data.vip.type) body.data.vip.type = 2
-    if(body.data.vip.status) body.data.vip.status = 1
-    if(body.data.vip.vip_pay_type) body.data.vip.vip_pay_type = 1
-    if(body.data.vip.due_date) body.data.vip.due_date = 4669824160
+    body["data"]["vip"]["type"] = 2;
+    body["data"]["vip"]["status"] = 1;
+    body["data"]["vip"]["vip_pay_type"] = 1;
+    body["data"]["vip"]["due_date"] = 4669824160;
   }
 
   // 去除青少模式每天两次提醒
