@@ -16,6 +16,8 @@ if(body.hasOwnProperty('data')) {
 
   // unlock 1080p 高码率 @ddgksf2013
   if(url.indexOf("x/v2/account/myinfo") !== -1 && body.data && body.data.vip) {
+    console.log('bili-beautify handle 1080p 高码率')
+
     if(body.data.vip.type) body.data.vip.type = 2
     if(body.data.vip.status) body.data.vip.status = 1
     if(body.data.vip.vip_pay_type) body.data.vip.vip_pay_type = 1
