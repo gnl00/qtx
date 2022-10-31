@@ -38,7 +38,7 @@ function handleRawBody() {
       if(body && body.hasOwnProperty('data') && body.data.hasOwnProperty('show')) {
         body.data = {}
       } else if(body && body.hasOwnProperty('data') && body.data.hasOwnProperty('list') && body.data.list.length !== 0) {
-        // 有些情况下不能强制删除开屏广告 @Cuttlefish
+        // 有些情况下不能强制删除开屏广告 @ddgksf2013
         body.data.list.forEach(item => {
           if(item.duration && item.duration !== 0) item.duration = 0
           // 2050 年
