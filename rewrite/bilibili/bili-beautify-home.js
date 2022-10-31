@@ -32,7 +32,7 @@ if(body.hasOwnProperty('data')) {
     // 首页 bottom 栏
     if (body.data.hasOwnProperty('bottom')) {
         console.log('bili-beautify handle 首页 bottom');
-        body.data.bottom = body.data.bottom.filter(item => ['首页', '动态', '我的'].indexOf(item.name) !== -1);
+        body.data.bottom = body.data.bottom.filter(item => ['首页', '动态', '消息','我的'].indexOf(item.name) !== -1);
         fixPos(body.data.bottom);
     }
   }
