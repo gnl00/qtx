@@ -4,7 +4,7 @@ const getMethod = "GET";
 const notifiTitle = "bili-beautify";
 let body = JSON.parse($response.body);
 
-if(body.hasOwnProperty('data')) {
+if(body && body.hasOwnProperty('data')) {
   // 首页精简
   if (url.indexOf("resource/show/tab/v2") !== -1 && method === getMethod) {
     console.log('bili-beautify handle 首页');
