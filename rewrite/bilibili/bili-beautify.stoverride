@@ -1,19 +1,19 @@
 name: bili-beautify
-desc: bili-beautify-profile
+desc: bili-beautify-mine
 
 http:
   mitm:
     - "app.bilibili.com"
-    - "grpc.biliapi.net"
+    - "api.bilibili.com"
   script:
-    # 净化 BiliBili [我的]页面
+    # 净化 BiliBili
     - match: ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|mode\/status?|myinfo)
-      name: bili_me
+      name: bili_mine
       type: response
       require-body: true
       timeout: 10
 
 script-providers:
-  bili_me:
-    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-beautify-account.js
+  bili_mine:
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-beautify-mine.js
     interval: 86400
