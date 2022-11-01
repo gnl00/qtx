@@ -12,7 +12,7 @@ http-response ^https:\/\/app\.bilibili\.com\/x\/(v2\/(activity\/inline?)|resourc
 
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|mode\/status?|myinfo) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-beautify-mine.js
 
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-json.js
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-beautify-ad.js
 
 http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$ requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
 
