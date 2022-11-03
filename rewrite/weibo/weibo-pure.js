@@ -116,9 +116,9 @@ if(url.indexOf('/portal.php?ct=feed&a=search_topic') !== -1 && body.data) {
   body.data = body.data.filter(entertainmentContentFilter)
 }
 
-// 国际版/极速版 热搜移除文娱榜
+// 国际版/极速版 热搜移除文娱榜/同城榜
 if(url.indexOf('/portal.php?a=search_discover') !== -1 && body.data) {
-  body.data = body.data.filter(item => '文娱榜' !== item.category_name || 'search_ent' !== item.type)
+  body.data = body.data.filter(item => '热搜榜' === item.category_name)
 }
 if(url.indexOf('/portal.php?a=search_ent') !== -1 && body.data) {
   body.data = {}
