@@ -11,10 +11,10 @@ if(url.indexOf('x/v2/splash/list') !== -1 && rawBody) {
 }
 
 // splash/show
-if(url.indexOf('x/v2/splash/show') !== -1 && rawBody) {
-  console.log('bili-beautify handle splash/show')
-  handleRawBody()
-}
+// if(url.indexOf('x/v2/splash/show') !== -1 && rawBody) {
+//   console.log('bili-beautify handle splash/show')
+//   handleRawBody()
+// }
 
 // splash/event/list2
 if(url.indexOf('x/v2/splash/event/list2') !== -1 && rawBody) {
@@ -52,11 +52,7 @@ function handleRawBody() {
 
     } catch(e) {
       // not json
-      if(e instanceof SyntaxError) {
-        rawBody = null
-      } else {
-        rawBody = null
-      }
+      rawBody = null
     }
   } else {
     rawBody = null
