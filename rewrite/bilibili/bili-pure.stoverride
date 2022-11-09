@@ -1,5 +1,5 @@
-name: bili-beautify
-desc: bili-beautify-mine
+name: bili-pure
+desc: bili-pure-mine
 
 http:
   mitm:
@@ -15,5 +15,5 @@ http:
 
 script-providers:
   bili_mine:
-    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-beautify-mine.js
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-pure-mine.js
     interval: 86400

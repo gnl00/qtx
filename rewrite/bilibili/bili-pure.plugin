@@ -1,0 +1,20 @@
+#!name=bili-pure
+#!desc=哔哩哔哩去开屏广告、推荐广告、动态广告、视频广告、个人页面精简、解锁1080p高码率
+
+[URL Rewrite]
+^https:\/\/ap(i|p)\.bilibili\.com\/x\/v2\/splash\/show? _ reject-dict
+
+[Script]
+
+http-response ^https:\/\/ap(i|p)\.bilibili\.com\/x\/v2\/splash\/(list?|event\/list2?) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-pure-splash.js
+
+http-response ^https:\/\/app\.bilibili\.com\/x\/(v2\/(activity\/inline?)|resource\/(show\/tab\/v2|top\/activity)) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-pure-home.js
+
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|mode\/status?|myinfo) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-pure-mine.js
+
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/bili-pure-ad.js
+
+http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView)$ requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
+
+[MITM]
+hostname = app.bilibili.com, api.bilibili.com

@@ -35,6 +35,7 @@ function handleRawBody() {
     try {
       // json, convert json to js object
       const body = JSON.parse(rawBody)
+      console.log('splash response is object')
       if(body && body.hasOwnProperty('data')) {
         if(body.data.hasOwnProperty('show')) body.data = {}
         if(body.data.hasOwnProperty('list') && body.data.list.length !== 0) {
@@ -50,11 +51,12 @@ function handleRawBody() {
       rawBody = JSON.stringify(body)
     } catch(e) {
       // not json
+      console.log('splash response is string')
       rawBody = null
     }
   }
 }
 
 $done({
-  rawBody
+  body: rawBody
 });
