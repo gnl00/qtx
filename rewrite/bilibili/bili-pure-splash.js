@@ -37,7 +37,7 @@ function handleRawBody() {
       const body = JSON.parse(rawBody)
       console.log('splash response is object')
       if(body && body.hasOwnProperty('data')) {
-        if(body.data.hasOwnProperty('show')) body.data = {}
+        if(body.data.hasOwnProperty('show')) body.data.show = {}
         if(body.data.hasOwnProperty('list') && body.data.list.length !== 0) {
           body.data.list.forEach(item => {
             if(item.duration) item.duration = 0
