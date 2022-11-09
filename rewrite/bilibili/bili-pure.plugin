@@ -17,4 +17,4 @@ http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? requires-body=
 http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView)$ requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
 
 [MITM]
-hostname = app.bilibili.com, api.bilibili.com
+hostname = app.bilibili.com, api.bilibili.com, grpc.biliapi.net
