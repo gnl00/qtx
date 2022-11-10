@@ -1,31 +1,31 @@
-// bili-beautify handle splash
+// bili-pure handle splash
 const url = $request.url;
 const method = $request.method;
-const notifiTitle = "bili-beautify";
+const notifiTitle = "bili-pure";
 let rawBody = $response.body;
 
 // spalsh/list
 if(url.indexOf('x/v2/splash/list') !== -1 && rawBody) {
-  console.log('bili-beautify handle splash/list')
+  console.log('bili-pure handle splash/list')
   handleRawBody()
 }
 
 // splash/show
 // if(url.indexOf('x/v2/splash/show') !== -1 && rawBody) {
-//   console.log('bili-beautify handle splash/show')
+//   console.log('bili-pure handle splash/show')
 //   handleRawBody()
 // }
 
 // splash/event/list2
 if(url.indexOf('x/v2/splash/event/list2') !== -1 && rawBody) {
-  console.log('bili-beautify handle splash/event/list2')
+  console.log('bili-pure handle splash/event/list2')
   handleRawBody()
 }
 
 // splash/brand/list
 // bilibili 官方自定义开屏画面
 // if(url.indexOf('x/v2/splash/brand/list') !== -1 && rawBody) {
-//   console.log('bili-beautify handle splash/brand/list')
+//   console.log('bili-pure handle splash/brand/list')
 //   handleRawBody()
 // }
 
