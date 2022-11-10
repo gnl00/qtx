@@ -1,7 +1,7 @@
 const url = $request.url;
 const method = $request.method;
 const getMethod = "GET";
-const notifiTitle = "baiduwp-pure";
+const notifiTitle = "bdcloud-pure";
 let body = JSON.parse($response.body);
 
 console.log('bdcloud-pure start')

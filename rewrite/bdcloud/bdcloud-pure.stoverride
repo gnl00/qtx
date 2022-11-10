@@ -14,5 +14,5 @@ http:
 
 script-providers:
   bd_ad_index:
-    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/baiducloud/baiducloud-pure.js
+    url: https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bdcloud/bdcloud-pure.js
     interval: 86400

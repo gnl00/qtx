@@ -1,7 +1,7 @@
 const url = $request.url;
 const method = $request.method;
 const getMethod = "GET";
-const notifiTitle = "baidumap-pure";
+const notifiTitle = "bdmap-pure";
 let body = JSON.parse($response.body);
 
 // splash

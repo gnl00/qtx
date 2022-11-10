@@ -1,8 +1,0 @@
-#!name=bdmap-pure
-#!desc=百度地图去开屏广告
-
-[Script]
-http-response https:\/\/afd\.baidu\.com\/afd\/entry? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/baidumap/baidumap-pure.js, tag=bdmap-pure
-
-[MITM]
-hostname = afd.baidu.com
