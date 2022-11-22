@@ -1,0 +1,10 @@
+# bilibili upos redirect
+
+#!name=bili-upos-redirect
+#!describe=bili upos server redirect
+
+[MITM]
+hostname = %APPEND% upos-hz-mirrorakam.akamaized.net
+
+[URL Rewrite]
+^https?:\/\/upos-hz-mirrorakam\.akamaized\.net\/(.*) https://upos-sz-mirrorcos.bilivideo.com/$1 302
