@@ -1,9 +1,9 @@
+#!name=keep-pure
+#!describe=keep-pure
+
 # keep-pure
 # 移除首页信息流
 # 移除会员 tab
-
-#!name=keep-pure
-#!describe=keep-pure
 
 [MITM]
 hostname = %APPEND% api.gotokeep.com

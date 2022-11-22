@@ -1,9 +1,9 @@
+#!name=coolapk-pure
+#!describe=coolapk-pure
+
 # 酷安 coolapk-pure
 # 移除首页 banner 广告、首页信息流广告，回复中的广告
 
-
-#!name=coolapk-pure
-#!describe=coolapk-pure
 [MITM]
 hostname = %APPEND% api.coolapk.com
 

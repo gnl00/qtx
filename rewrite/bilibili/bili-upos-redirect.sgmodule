@@ -1,7 +1,7 @@
-# bilibili upos redirect
-
 #!name=bili-upos-redirect
 #!describe=bili upos server redirect
+
+# bilibili upos redirect
 
 [MITM]
 hostname = %APPEND% upos-hz-mirrorakam.akamaized.net
