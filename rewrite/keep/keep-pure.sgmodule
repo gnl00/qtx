@@ -1,0 +1,9 @@
+# keep-pure
+# 移除首页信息流
+# 移除会员 tab
+
+[MITM]
+hostname = %APPEND% api.gotokeep.com
+
+[Script]
+keep-pure = type=http-response, pattern=^https:\/\/api\.gotokeep\.com\/(homepage\/v6\/tab|config\/v3\/basic), requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/keep/keep-pure.js

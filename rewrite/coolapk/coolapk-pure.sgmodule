@@ -1,0 +1,8 @@
+# 酷安 coolapk-pure
+# 移除首页 banner 广告、首页信息流广告，回复中的广告
+
+[MITM]
+hostname = %APPEND% api.coolapk.com
+
+[Script]
+coolapk-pure = type=http-response, pattern=^https:\/\/api\.coolapk\.com\/v6\/(main\/indexV8?|feed\/(detail|replyList)) ,requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/coolapk/coolapk-pure.js

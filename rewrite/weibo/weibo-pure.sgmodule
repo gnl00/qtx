@@ -1,0 +1,22 @@
+# weibo-pure
+# author @gnl00
+
+[MITM]
+hostname = %APPEND% api.weibo.cn, weibointl.api.weibo.cn
+
+[URL Rewrite]
+# [微博] 移除推荐视频
+^https:\/\/api\.weibo\.cn\/2\/(video\/tiny_stream_video_list?|!\/multimedia\/playback\/batch_get) _ reject-dict
+
+[Script]
+weibo-pure-stream = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/video\/tiny_stream_channel_list?, requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+
+weibo-pure-profile = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/profile\/me?, requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+
+weibo-pure-finder = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/search\/(finder?|container_timeline?|container_discover?), requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+
+weibo-pure-hotsearch-filter = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/page?, requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+
+weibo-pure-hotsearch-remove-1 = type=http-response, pattern=^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=(search_topic|search_discover) ,requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+
+weibo-pure-hotsearch-remove-2 = type=http-response, pattern=^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?ct=feed&a=(search_topic|trends) ,requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js

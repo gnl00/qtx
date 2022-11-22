@@ -1,0 +1,10 @@
+# xhs-pure
+# 1. remove picture and video watermark [DONE]
+# 2. remove home unused tabbar and categories [DONE]
+# 3. remove homefeed ads [DONE]
+
+[MITM]
+hostname = %APPEND% edith.xiaohongshu.com, xiaohongshu.com
+
+[Script]
+xhs-pure = type=http-response, pattern=^https:\/\/(edith|www)\.xiaohongshu\.com\/api\/sns\/(v1\/(system_service\/config|ads\/resource?)|v2\/(note\/feed?|system_service\/splash)|v3\/note\/videofeed?|v6\/homefeed\/categories?|v6\/homefeed\?client_volume|v10\/note\/video\/save?), requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/xiaohongshu/xhs-pure.js
