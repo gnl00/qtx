@@ -1,6 +1,9 @@
 # 百度网盘
 # 去除首页营销广告
 
+#!name=bdcloud-pure
+#!describe=bdcloud-pure
+
 [MITM]
 hostname = %APPEND% pan.baidu.com
 

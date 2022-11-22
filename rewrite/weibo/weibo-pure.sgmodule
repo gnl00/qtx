@@ -1,6 +1,9 @@
 # weibo-pure
 # author @gnl00
 
+#!name=weibo-pure
+#!describe=weibo-pure
+
 [MITM]
 hostname = %APPEND% api.weibo.cn, weibointl.api.weibo.cn
 

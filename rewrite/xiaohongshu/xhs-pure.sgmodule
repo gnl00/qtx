@@ -2,6 +2,8 @@
 # 1. remove picture and video watermark [DONE]
 # 2. remove home unused tabbar and categories [DONE]
 # 3. remove homefeed ads [DONE]
+#!name=xhs-pure
+#!describe=xhs-pure
 
 [MITM]
 hostname = %APPEND% edith.xiaohongshu.com, xiaohongshu.com
