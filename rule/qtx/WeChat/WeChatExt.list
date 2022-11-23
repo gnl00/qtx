@@ -1,9 +1,8 @@
 # rules for wechat
 
 HOST,szextshort.weixin.qq.com,WeChat
-HOST,^.*extshort.weixin.qq.com,WeChat
 HOST-SUFFIX,szextshort.weixin.qq.com,WeChat
 HOST-SUFFIX,extshort.weixin.qq.com,WeChat
-HOST-SUFFIX,^.*extshort.weixin.qq.com,WeChat
 HOST-KEYWORD,szextshort.weixin.qq.com,WeChat
 HOST-KEYWORD,extshort.weixin.qq.com,WeChat
+HOST-KEYWORD,^.*extshort.weixin.qq.com,WeChat
