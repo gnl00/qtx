@@ -1,0 +1,63 @@
+# Advertise rules
+
+# 易校园
+DOMAIN-SUFFIX, mazu.m.qq.com
+DOMAIN-SUFFIX, adash.man.aliyuncs.com
+DOMAIN-SUFFIX, adashxgc.ut.taobao.com
+DOMAIN-SUFFIX, da.anythinktech.com
+
+DOMAIN-SUFFIX, mobads.baidu.com
+DOMAIN-SUFFIX, t-dsp.pinduoduo.com
+DOMAIN-SUFFIX, win.gdt.qq.com
+DOMAIN-SUFFIX, sdk.e.qq.com
+DOMAIN-SUFFIX, api.share.mob.com
+DOMAIN-SUFFIX, cn-new-ap-northeast-2a-hb.rayjump.com
+DOMAIN-SUFFIX, dm.toutiao.com
+DOMAIN-SUFFIX, cn-new-ap-northeast-2c-hb.rayjump.com
+DOMAIN-SUFFIX, mon.zijieapi.com
+DOMAIN-SUFFIX, log-api.pangolin-sdk-toutiao.com
+DOMAIN-SUFFIX, bgg.baidu.com
+DOMAIN-SUFFIX, ios.bugly.qq.com
+DOMAIN-SUFFIX, log-verify.mob.com
+DOMAIN-SUFFIX, tk.anythinktech.com
+DOMAIN-SUFFIX, sdk.push.mob.com
+DOMAIN-SUFFIX, toblog.ctobsnssdk.com
+DOMAIN-SUFFIX, bjimp.voiceads.cn
+
+DOMAIN-KEYWORD, adx-cn
+DOMAIN-KEYWORD, second-card
+DOMAIN-KEYWORD, zijieapi
+DOMAIN-KEYWORD, gifshow
+DOMAIN-KEYWORD, dutils
+DOMAIN-KEYWORD, adkwai
+DOMAIN-KEYWORD, pangolin
+DOMAIN-KEYWORD, rayjump
+DOMAIN-KEYWORD, voiceads
+DOMAIN-KEYWORD, advertising
+DOMAIN-KEYWORD, mobads
+DOMAIN-KEYWORD, iflyad
+
+URL-REGEX, *advertising*
+
+# 叮嗒出行
+DOMAIN-SUFFIX, openlog.bianxianmao.com
+DOMAIN-SUFFIX, p3-be-pack-sign.pglstatp-toutiao.com
+DOMAIN-SUFFIX, p9-be-pack-sign.pglstatp-toutiao.com
+DOMAIN-SUFFIX, p26-be-pack-sign.pglstatp-toutiao.com
+DOMAIN-SUFFIX, api-access.pangolin-sdk-toutiao.com
+DOMAIN-SUFFIX, sysdk.cl2009.com
+DOMAIN-SUFFIX, open.e.kuaishou.com
+DOMAIN-SUFFIX, adashbc.ut.taobao.com
+DOMAIN-SUFFIX, pubgw.api.ddxq.mobi
+DOMAIN-SUFFIX, mi.gdt.qq.com
+DOMAIN-SUFFIX, wxdiiing.xiangbababus.com
+DOMAIN-SUFFIX, sf3-fe-tos.pglstatp-toutiao.com
+DOMAIN-SUFFIX, pgdt.ugdtimg.com
+
+# keep
+DOMAIN-SUFFIX, kad.gotokeep.com
+DOMAIN-SUFFIX, apm.gotokeep.com
+
+# wechat
+DOMAIN-KEYWORD, wxsnsdy
+DOMAIN-KEYWORD, wxsnsdythumb
