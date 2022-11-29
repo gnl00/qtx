@@ -1,9 +1,10 @@
 # rules for wechat
 
 DOMAIN,szextshort.weixin.qq.com
-DOMAIN,^.*extshort.weixin.qq.com
 DOMAIN-SUFFIX,szextshort.weixin.qq.com
-DOMAIN-SUFFIX,^.*extshort.weixin.qq.com
+DOMAIN-SUFFIX,extshort.weixin.qq.com
 DOMAIN-KEYWORD,szextshort.weixin.qq.com
 DOMAIN-KEYWORD,extshort.weixin.qq.com
-URL-REGEX,^.*extshort.weixin.qq.com
+URL-REGEX,extshort
+URL-REGEX,szextshort
+URL-REGEX,extshort\.weixin\.qq\.com
