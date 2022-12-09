@@ -1,5 +1,5 @@
 #!name=weibo-pure
-#!desc=weibo-pure
+#!desc=remove wb ad and entertainment content
 #!author=@gnl00
 
 [MITM]
@@ -16,7 +16,7 @@ weibo-pure-profile = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/p
 
 weibo-pure-finder = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/search\/(finder?|container_timeline?|container_discover?), requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
 
-weibo-pure-hotsearch-filter = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/page?, requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
+weibo-pure-hotsearch-filter = type=http-response, pattern=^https:\/\/api\.weibo\.cn\/2\/page\?gsid=, requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
 
 weibo-pure-hotsearch-remove-1 = type=http-response, pattern=^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=(search_topic|search_discover) ,requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/weibo/weibo-pure.js
 
