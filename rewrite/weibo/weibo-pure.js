@@ -73,8 +73,8 @@ if(url.indexOf('2/search/container_discover?') !== -1 && body) {
 
 // 微博 热搜榜精简
 // url.indexOf('weibolite') 排除极速版，以免错误处理
-if(url.indexOf('2/page?') !== -1 && url.indexOf('2/page?aid=') === -1 && body) {
-  console.log('weibo-pure handle 2/page?')
+if(url.indexOf('2/page?gsid=') !== -1 && body) {
+  console.log('weibo-pure handle 2/page?gsid=')
 
   // 去掉除了热搜以外的 channel
   if(body.pageInfo && body.pageInfo.cardlist_head_cards.length !== 0) {
