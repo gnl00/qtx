@@ -11,11 +11,6 @@ if(body.hasOwnProperty('data') && body.data) {
     body.data = {}
   }
 
-  // ads
-  // if(url.indexOf('v1/ads/resource') && body.data.length !== 0) {
-  //   body.data = {}
-  // }
-
   // homefeed 
   if(url.indexOf('v1/system_service/config') && body.data.hasOwnProperty('tabbar')) {
     console.log('xhs-pure handle homefeed')
@@ -36,37 +31,12 @@ if(body.hasOwnProperty('data') && body.data) {
     if(body.data.watermark_pic_path) body.data.watermark_pic_path = ''
   }
 
-  // homefeed categories
-  if(url.indexOf('v6/homefeed/categories')) {
-    console.log('xhs-pure handle homefeed categories')
-
-    // if(body.data.hasOwnProperty('categories')) {
-    //   body.data.categories = body.data.categories.map(item => {
-    //     if(item.oid.indexOf('_v3') === -1) {
-    //       item.oid = item.oid.concat('_v3');
-    //   }
-    //   return item;
-    //   })
-    // }
-
-    if(body.data.hasOwnProperty('rec_categories')) {
-      delete body.data.rec_categories
-    }
-  }
-
   // homefeed ads
   if(url.indexOf('v6/homefeed?client_volume') !== -1 && body.data.length !== 0) {
     body.data = body.data.filter(item => !item.is_ads || item.card_icon != null)
   }
 
-  // force enable download
-  // if(url.indexOf('v10/note/video/save') && body.data) {
-  //   body.data = {
-  //     ...body.data,
-  //     msg: '正在下载',
-  //     disable: false
-  //   }
-  // }
+  
 
   // picture watermark
   if(url.indexOf('v2/note/feed') !== -1) {
