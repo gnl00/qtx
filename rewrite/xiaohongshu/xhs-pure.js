@@ -33,7 +33,8 @@ if(body.hasOwnProperty('data') && body.data) {
 
   // homefeed ads
   if(url.indexOf('v6/homefeed?client_volume') !== -1 && body.data.length !== 0) {
-    body.data = body.data.filter(item => !item.is_ads || item.card_icon != null)
+    body.data = body.data.filter(item => !item.is_ads)
+    body.data = body.data.filter(item => item.note_attributes != 'goods')
   }
 
   
