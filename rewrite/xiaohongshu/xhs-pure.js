@@ -19,7 +19,7 @@ if(body.hasOwnProperty('data') && body.data) {
     body.data.tabbar.tabs = body.data.tabbar.tabs.filter(item => ['购买', '购物'].indexOf(item.title) === -1);
 
     // home splash
-    if(body.data.splash && body.data.splash.length > 0) body.data.splash.length.length = 0
+    if(body.data.splash && body.data.splash.length > 0) body.data.splash.length = 0
     
     // home store
     if(body.data.store) body.data.store = {}
