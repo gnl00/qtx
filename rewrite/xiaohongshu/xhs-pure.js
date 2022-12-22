@@ -11,6 +11,7 @@ if(body.hasOwnProperty('data') && body.data) {
     delete body.data.store;
     delete body.data.splash;
     delete body.data.loading_img;
+    body.data.ads_groups=null
     // body.data = {}
   }
 
