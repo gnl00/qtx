@@ -4,6 +4,10 @@ const getMethod = "GET";
 const notifiTitle = "xhs-pure";
 let body = JSON.parse($response.body);
 
+const isQuanX = typeof $notify != "undefined";
+const isSurgeiOS = typeof $utils != "undefined" && $environment.system == "iOS";
+const isLooniOS = typeof $loon != "undefined" && /iPhone/.test($loon);
+
 if(body.hasOwnProperty('data') && body.data) {
   // app splash
   if(url.indexOf('v2/system_service/splash_config') && body.data.hasOwnProperty('ads_groups')){
@@ -41,8 +45,6 @@ if(body.hasOwnProperty('data') && body.data) {
     body.data = body.data.filter(item => !item.hasOwnProperty('note_attributes'))
   }
 
-  
-
   // picture watermark
   if(url.indexOf('v2/note/feed') !== -1) {
     for(let i = 0; i < body.data.length; i++) {
@@ -50,6 +52,12 @@ if(body.hasOwnProperty('data') && body.data) {
         if(item.hasOwnProperty('media_save_config')) {
           item.media_save_config.disable_watermark = true
         }
+      })
+
+      // show download notification
+      body.data[i].note_list[i].images_list.forEach(item => {
+        let picUrl = item.original
+        notify(`Tab to download picture No.[${i}]`, 'xhs-pure', picUrl, picUrl);
       })
     }
   }
@@ -68,3 +76,32 @@ body = JSON.stringify(body);
 $done({
     body
 });
+
+// @zZPiglet
+function notify(title = "", subtitle = "", content = "", open_url) {
+  if (isQuanX && /iOS/.test($environment.version)) {
+      let opts = {};
+      if (open_url) opts["open-url"] = open_url;
+      if (JSON.stringify(opts) == "{}") {
+          $notify(title, subtitle, content);
+      } else {
+          $notify(title, subtitle, content, opts);
+      }
+  } else if (isSurgeiOS) {
+      let opts = {};
+      if (open_url) opts["url"] = open_url;
+      if (JSON.stringify(opts) == "{}") {
+          $notification.post(title, subtitle, content);
+      } else {
+          $notification.post(title, subtitle, content, opts);
+      }
+  } else if (isLooniOS) {
+      let opts = {};
+      if (open_url) opts["openUrl"] = open_url;
+      if (JSON.stringify(opts) == "{}") {
+          $notification.post(title, subtitle, content);
+      } else {
+          $notification.post(title, subtitle, content, opts);
+      }
+  }
+}
