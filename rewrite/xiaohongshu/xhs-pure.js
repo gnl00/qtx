@@ -57,7 +57,7 @@ if(body.hasOwnProperty('data') && body.data) {
       // show download notification
       body.data[i].note_list[i].images_list.forEach((item, idx) => {
         let picUrl = item.original
-        notify(`Tab to download picture No.[${idx + 1}]`, 'xhs-pure', picUrl, picUrl);
+        // notify(`Tab to download picture No.[${idx + 1}]`, 'xhs-pure', picUrl, picUrl);
       })
     }
   }
