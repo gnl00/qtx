@@ -92,7 +92,7 @@ if(url.indexOf('2/page?gsid=') !== -1 && body) {
       if(item.itemid && item.itemid === 'hotword' && item.card_group && item.card_group.length !==0) {
         item.card_group = item.card_group.filter(gitem => {
           if(gitem.desc_extr) {
-            return gitem.desc_extr.indexOf('剧集') === -1 && gitem.desc_extr.indexOf('综艺') === -1 && gitem.desc_extr.indexOf('电影') === -1 && gitem.desc_extr.indexOf('音乐') === -1 && gitem.desc_extr.indexOf('盛典') === -1
+            return gitem.desc_extr.indexOf('投票') === -1 &&gitem.desc_extr.indexOf('演出') === -1 &&gitem.desc_extr.indexOf('剧集') === -1 && gitem.desc_extr.indexOf('综艺') === -1 && gitem.desc_extr.indexOf('电影') === -1 && gitem.desc_extr.indexOf('音乐') === -1 && gitem.desc_extr.indexOf('盛典') === -1
           }
           return true
         })
