@@ -145,7 +145,7 @@ $done({
 });
 
 function entertainmentContentFilter(item) {
-  return ['剧集', '电影', '综艺', '音乐', '盛典', '晚会'].indexOf(item.subject_label) === -1
+  return ['演出', '投票', '剧集', '电影', '综艺', '音乐', '盛典', '晚会'].indexOf(item.subject_label) === -1
 }
 
 function simplifyFinder(body) {
