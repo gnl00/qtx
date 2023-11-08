@@ -25,21 +25,6 @@ HOST-SUFFIX, sdk.push.mob.com, REJECT
 HOST-SUFFIX, toblog.ctobsnssdk.com, REJECT
 HOST-SUFFIX, bjimp.voiceads.cn, REJECT
 
-HOST-KEYWORD, adx-cn, REJECT
-HOST-KEYWORD, anythinktech, REJECT
-HOST-KEYWORD, second-card, REJECT
-HOST-KEYWORD, dutils, REJECT
-HOST-KEYWORD, adkwai, REJECT
-HOST-KEYWORD, pangolin, REJECT
-HOST-KEYWORD, pangolin-sdk-toutiao, REJECT
-HOST-KEYWORD, rayjump, REJECT
-HOST-KEYWORD, voiceads, REJECT
-HOST-KEYWORD, advertising, REJECT
-HOST-KEYWORD, mobads, REJECT
-HOST-KEYWORD, iflyad, REJECT
-HOST-KEYWORD, zijieapi, REJECT
-HOST-KEYWORD, gifshow, REJECT
-
 # 叮嗒出行
 HOST-SUFFIX, openlog.bianxianmao.com, REJECT
 HOST-SUFFIX, p3-be-pack-sign.pglstatp-toutiao.com, REJECT
