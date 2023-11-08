@@ -24,21 +24,6 @@ DOMAIN-SUFFIX, sdk.push.mob.com, REJECT
 DOMAIN-SUFFIX, toblog.ctobsnssdk.com, REJECT
 DOMAIN-SUFFIX, bjimp.voiceads.cn, REJECT
 
-DOMAIN-KEYWORD, adx-cn, REJECT
-DOMAIN-KEYWORD, anythinktech, REJECT
-DOMAIN-KEYWORD, second-card, REJECT
-DOMAIN-KEYWORD, dutils, REJECT
-DOMAIN-KEYWORD, adkwai, REJECT
-DOMAIN-KEYWORD, pangolin, REJECT
-DOMAIN-KEYWORD, pangolin-sdk-toutiao, REJECT
-DOMAIN-KEYWORD, rayjump, REJECT
-DOMAIN-KEYWORD, voiceads, REJECT
-DOMAIN-KEYWORD, advertising, REJECT
-DOMAIN-KEYWORD, mobads, REJECT
-DOMAIN-KEYWORD, iflyad, REJECT
-DOMAIN-KEYWORD, zijieapi, REJECT
-DOMAIN-KEYWORD, gifshow, REJECT
-
 # 叮嗒出行
 DOMAIN-SUFFIX, openlog.bianxianmao.com, REJECT
 DOMAIN-SUFFIX, p3-be-pack-sign.pglstatp-toutiao.com, REJECT
