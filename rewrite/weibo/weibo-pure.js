@@ -109,11 +109,11 @@ if(url.indexOf('/portal.php?a=search_topic') !== -1 && body.data.length !== 0) {
 }
 if(url.indexOf('/portal.php?ct=feed&a=trends') !== -1 && body.data) {
   console.log('weibo-pure handle /portal.php?ct=feed&a=trends')
-  body.data.search_topic.cards = body.data.search_topic.cards.filter(entertainmentContentFilter)
+  body.data.search_topic.cards = body.data.search_topic.cards.filter(entertainmentContentFilter).filter(keywordFilter)
 }
 if(url.indexOf('/portal.php?ct=feed&a=search_topic') !== -1 && body.data) {
   console.log('weibo-pure handle /portal.php?ct=feed&a=search_topic')
-  body.data = body.data.filter(entertainmentContentFilter)
+  body.data = body.data.filter(entertainmentContentFilter).filter(keywordFilter)
 }
 
 // 国际版/极速版 热搜移除文娱榜/同城榜
