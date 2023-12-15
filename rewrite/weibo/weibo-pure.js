@@ -105,7 +105,7 @@ if(url.indexOf('2/page?gsid=') !== -1 && body) {
 // 国际版/极速版 热搜移除娱乐内容
 if(url.indexOf('/portal.php?a=search_topic') !== -1 && body.data.length !== 0) {
   console.log('weibo-pure handle /portal.php?a=search_topic')
-  body.data = body.data.filter(entertainmentContentFilter)
+  body.data = body.data.filter(entertainmentContentFilter).filter(keywordFilter)
 }
 if(url.indexOf('/portal.php?ct=feed&a=trends') !== -1 && body.data) {
   console.log('weibo-pure handle /portal.php?ct=feed&a=trends')
@@ -143,6 +143,10 @@ body = JSON.stringify(body);
 $done({
     body
 });
+
+function keywordFilter(item) {
+  return ['董宇辉', '东方甄选', '格力', '董明珠', '孟羽童', '小杨哥'].indexOf(item.title) === -1
+}
 
 function entertainmentContentFilter(item) {
   return ['演出', '投票', '剧集', '电影', '综艺', '音乐', '盛典', '晚会'].indexOf(item.subject_label) === -1
