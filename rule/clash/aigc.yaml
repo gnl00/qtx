@@ -1,0 +1,13 @@
+# behavior: "classical"
+payload:
+  - DOMAIN-SUFFIX,copilot.microsoft.com
+  - DOMAIN-KEYWORD,copilot
+  - DOMAIN-KEYWORD,coze
+  - DOMAIN-SUFFIX,coze.com
+  - DOMAIN-SUFFIX,bard.google.com
+  - DOMAIN-SUFFIX,anthropic.com
+  - DOMAIN-KEYWORD,openai
+  - DOMAIN-SUFFIX,auth0.com
+  - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,openai.com
+  - DOMAIN-SUFFIX,chat.openai.com
