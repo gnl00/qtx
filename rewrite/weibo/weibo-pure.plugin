@@ -4,8 +4,8 @@
 #!tag = 精简
 
 [Argument]
-keyword = input,"",tag=热搜标题关键字,desc=热搜标题关键字：xxxxx上热搜啦
-label = input,"",tag=热搜标签,desc=热搜标签关：最新，最热
+keyword = input,"",tag=热搜标题关键字,desc=热搜标题关键字：xxxxx上热搜啦。分隔符可以使用"+"或者","。
+label = input,"",tag=热搜标签,desc=热搜标签关：最新，最热。分隔符可以使用"+"或者","。
 
 
 [MITM]
