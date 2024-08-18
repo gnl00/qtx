@@ -155,16 +155,21 @@ $done({
 });
 
 function titleKeywordFilter(targetKy) {
-  if (filterKeywords.length === 0) {
+  if (!filterKeywords || filterKeywords.length === 0) {
     return true
   }
   const keywords = filterKeywords.split(',')
-  return keywords.indexOf(targetKy) === -1
+  for (const ky of keywords) {
+    if (targetKy.indexOf(ky) != -1) {
+      return false
+    }
+    return true
+  }
   // return ['董宇辉', '东方甄选', '格力', '董明珠', '孟羽童', '小杨哥'].indexOf(item.title) === -1
 }
 
 function SubjectLabelFilter(targetLabel) {
-  if (filterLabels.length == 0) {
+  if (!filterKeywords || filterLabels.length == 0) {
     return true
   }
   const labels = filterLabels.split(',')

@@ -4,8 +4,8 @@
 #!tag = 精简
 
 [Argument]
-keyword = input,"董宇辉,东方甄选,格力,董明珠,孟羽童,小杨哥",tag=热搜标题关键字,desc=热搜标题关键字：xxxxx上热搜啦
-label = input,"演出,投票,剧集,电影,综艺,音乐,盛典,晚会",tag=热搜标签,desc=热搜标签关：最新，最热
+keyword = input,"",tag=热搜标题关键字,desc=热搜标题关键字：xxxxx上热搜啦
+label = input,"",tag=热搜标签,desc=热搜标签关：最新，最热
 
 
 [MITM]
