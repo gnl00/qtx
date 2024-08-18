@@ -164,8 +164,8 @@ function titleKeywordFilter(targetKy) {
     if (targetKy.indexOf(ky) != -1) {
       return false
     }
-    return true
   }
+  return true
   // return ['董宇辉', '东方甄选', '格力', '董明珠', '孟羽童', '小杨哥'].indexOf(item.title) === -1
 }
 
