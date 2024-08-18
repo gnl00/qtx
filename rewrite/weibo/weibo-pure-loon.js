@@ -170,11 +170,11 @@ function titleKeywordFilter(targetKy) {
 }
 
 function SubjectLabelFilter(targetLabel) {
-  if (!filterKeywords || filterLabels.length == 0) {
+  if (!filterLabels || filterLabels.length == 0) {
     return true
   }
-  const delimiter = labels.indexOf(',') != -1 ? ',' : '+'
-  const labels = labels.split(delimiter)
+  const delimiter = filterLabels.indexOf(',') != -1 ? ',' : '+'
+  const labels = filterLabels.split(delimiter)
   return labels.indexOf(targetLabel) === -1
   // return ['演出', '投票', '剧集', '电影', '综艺', '音乐', '盛典', '晚会'].indexOf(targetLabel.subject_label) === -1
 }
