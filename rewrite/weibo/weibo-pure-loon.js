@@ -4,6 +4,9 @@ const getMethod = "GET";
 const notifiTitle = "weibo-pure";
 let body = JSON.parse($response.body);
 
+const filterKeywords = $argument.keyword
+const filterLabels = $argument.label
+
 // 微博 移除推荐视频
 if(url.indexOf('2/video/tiny_stream_video_list') !== -1 && body.hasOwnProperty('data')) {
   console.log('weibo-pure handle tiny_stream_video_list')
@@ -92,7 +95,13 @@ if(url.indexOf('2/page?gsid=') !== -1 && body) {
       if(item.itemid && item.itemid === 'hotword' && item.card_group && item.card_group.length !==0) {
         item.card_group = item.card_group.filter(gitem => {
           if(gitem.desc_extr) {
-            return gitem.desc_extr.indexOf('投票') === -1 &&gitem.desc_extr.indexOf('演出') === -1 &&gitem.desc_extr.indexOf('剧集') === -1 && gitem.desc_extr.indexOf('综艺') === -1 && gitem.desc_extr.indexOf('电影') === -1 && gitem.desc_extr.indexOf('音乐') === -1 && gitem.desc_extr.indexOf('盛典') === -1
+            return gitem.desc_extr.indexOf('投票') === -1 
+              && gitem.desc_extr.indexOf('演出') === -1 
+              && gitem.desc_extr.indexOf('剧集') === -1 
+              && gitem.desc_extr.indexOf('综艺') === -1 
+              && gitem.desc_extr.indexOf('电影') === -1 
+              && gitem.desc_extr.indexOf('音乐') === -1 
+              && gitem.desc_extr.indexOf('盛典') === -1
           }
           return true
         })
@@ -105,15 +114,16 @@ if(url.indexOf('2/page?gsid=') !== -1 && body) {
 // 国际版/极速版 热搜移除娱乐内容
 if(url.indexOf('/portal.php?a=search_topic') !== -1 && body.data.length !== 0) {
   console.log('weibo-pure handle /portal.php?a=search_topic')
-  body.data.search_topic.cards = body.data.search_topic.cards.filter(SubjectLabelFilter).filter(titleKeywordFilter)
+  body.data.search_topic.cards = body.data.search_topic.cards.filter(item => titleKeywordFilter(item.title) && SubjectLabelFilter(item.subject_label))
+  body.data.trending_topic.cards = body.data.trending_topic.cards.filter(item => titleKeywordFilter(item.title))
 }
 if(url.indexOf('/portal.php?ct=feed&a=trends') !== -1 && body.data) {
   console.log('weibo-pure handle /portal.php?ct=feed&a=trends')
-  body.data.search_topic.cards = body.data.search_topic.cards.filter(SubjectLabelFilter).filter(titleKeywordFilter)
+  body.data.search_topic.cards = body.data.search_topic.cards.filter(item => titleKeywordFilter(item.title) && SubjectLabelFilter(item.subject_label))
 }
 if(url.indexOf('/portal.php?ct=feed&a=search_topic') !== -1 && body.data) {
   console.log('weibo-pure handle /portal.php?ct=feed&a=search_topic')
-  body.data = body.data.filter(SubjectLabelFilter).filter(titleKeywordFilter)
+  body.data = body.data.filter(item => titleKeywordFilter(item.title) && SubjectLabelFilter(item.subject_label))
 }
 
 // 国际版/极速版 热搜移除文娱榜/同城榜
@@ -144,12 +154,22 @@ $done({
     body
 });
 
-function titleKeywordFilter(item) {
-  return ['董宇辉', '东方甄选', '格力', '董明珠', '孟羽童', '小杨哥'].indexOf(item.title) === -1
+function titleKeywordFilter(targetKy) {
+  if (filterKeywords.length === 0) {
+    return true
+  }
+  const keywords = filterKeywords.split(',')
+  return keywords.indexOf(targetKy) === -1
+  // return ['董宇辉', '东方甄选', '格力', '董明珠', '孟羽童', '小杨哥'].indexOf(item.title) === -1
 }
 
-function SubjectLabelFilter(item) {
-  return ['演出', '投票', '剧集', '电影', '综艺', '音乐', '盛典', '晚会'].indexOf(item.subject_label) === -1
+function SubjectLabelFilter(targetLabel) {
+  if (filterLabels.length == 0) {
+    return true
+  }
+  const labels = filterLabels.split(',')
+  return labels.indexOf(targetLabel) === -1
+  // return ['演出', '投票', '剧集', '电影', '综艺', '音乐', '盛典', '晚会'].indexOf(targetLabel.subject_label) === -1
 }
 
 function simplifyFinder(body) {
