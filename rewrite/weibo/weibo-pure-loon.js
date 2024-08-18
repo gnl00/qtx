@@ -158,7 +158,7 @@ function titleKeywordFilter(targetKy) {
   if (!filterKeywords || filterKeywords.length === 0) {
     return true
   }
-  const delimiter = labels.indexOf(',') != -1 ? ',' : '+'
+  const delimiter = filterKeywords.indexOf(',') != -1 ? ',' : '+'
   const keywords = filterKeywords.split(delimiter)
   for (const ky of keywords) {
     if (targetKy.indexOf(ky) != -1) {
@@ -174,7 +174,7 @@ function SubjectLabelFilter(targetLabel) {
     return true
   }
   const delimiter = labels.indexOf(',') != -1 ? ',' : '+'
-  const labels = filterLabels.split(delimiter)
+  const labels = labels.split(delimiter)
   return labels.indexOf(targetLabel) === -1
   // return ['演出', '投票', '剧集', '电影', '综艺', '音乐', '盛典', '晚会'].indexOf(targetLabel.subject_label) === -1
 }
