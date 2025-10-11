@@ -1,0 +1,14 @@
+#!name=跳转白哔哩哔哩
+#!desc=跳转白哔哩哔哩
+#!homepage=https://github.com/gnl00
+#!author=@gnl00
+
+[Script]
+
+http-response ^https\:\/\/(m\.bilibili)\.com\/video? script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/open-white-bili.js, requires-body=true, timeout=10, tag=openWhiteBili
+
+http-response ^https\:\/\/(m\.bilibili)\.com\/space? script-path=https://raw.githubusercontent.com/gnl00/qtx/master/rewrite/bilibili/open-white-bili.js, requires-body=true, timeout=10, tag=openWhiteBili
+
+[MITM]
+
+hostname = m.bilibili.com
