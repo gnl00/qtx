@@ -39,37 +39,12 @@ if (cgiData.type === "gray" || cgiData.type === "newgray" || cgiData.type === "e
     if (/qr\.alipay/.test(trueURL)) {
         notify("", "点击跳转到支付宝打开", trueURL, alipayScheme + encodeURIComponent(trueURL));
         $done({});
-    } else if {
-        if (trueURL.includes('https://spotify.link')) {
-            const pattern = /\$full_url=([^&]+)/;
-            trueURL = decodeURIComponent(trueURL).match(pattern)[1];
-        }
-        notify("", "点击跳转到浏览器打开", trueURL, trueURL);
-        if (forceRedirect) {
-            let redirect = {
-                status: redirectStatus,
-                headers: {
-                    Location: trueURL,
-                },
-            };
-            if (isQuanX) redirect.body = respBody;
-            $done(redirect);
-        } else $done({});
     } else if (trueURL.includes('m.bilibili.com')) {
         const pattern = /\$full_url=([^&]+)/;
         trueURL = decodeURIComponent(trueURL).match(pattern)[1];
         console.log('trueURL', trueURL)
         notify("", "点击跳转到哔哩哔哩打开", trueURL, biliVideoScheme + trueURL);
-        if (forceRedirect) {
-            let redirect = {
-                status: redirectStatus,
-                headers: {
-                    Location: trueURL,
-                },
-            };
-            if (isQuanX) redirect.body = respBody;
-            $done(redirect);
-        } else $done({});
+        $done({});
     }
 } else {
     $done({});
