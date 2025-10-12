@@ -1,6 +1,5 @@
 const reqUrl = $request.url;
 
-const alipayScheme = "alipays://platformapi/startapp?appId=20000067&url=";
 const biliVideoScheme = "bilibili://video/";
 const biliSpaceScheme = "bilibili://space/";
 
